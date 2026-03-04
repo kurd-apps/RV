@@ -174,7 +174,10 @@
       "videoLink": "https://youtu.be/jUgfWwRHSwA?si=uMYiC0EozJw2dCvM",
       "date": "2025-11-01",
       "websiteLink": "https://shirinstan.wuaze.com/",
-      "displayType": "image"
+      "displayType": "video",
+      "videoLinks": [
+        "https://youtu.be/jUgfWwRHSwA?si=uMYiC0EozJw2dCvM"
+      ]
     }
   ]
 }
