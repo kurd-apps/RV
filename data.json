@@ -1,54 +1,33 @@
 {
-  "ui": {
-    "logo": {
-      "en": "Rivan Omer Salim",
-      "ku": "ڕیڤان عومەر سەلیم"
+  "sections": {
+    "hero": {
+      "name": { "en": "Your Name", "ku": "ناوەکەت لێرە" },
+      "title": { "en": "Creative Director & Web Developer", "ku": "دەرهێنەری داهێنەر و گەشەپێدەری وێب" },
+      "subtitle": { "en": "I build digital experiences and craft visual stories.", "ku": "من ئەزموونی دیجیتاڵی و چیرۆکی بینراو دروست دەکەم." }
     },
-    "navHome": {
-      "en": "Home",
-      "ku": "سەرەتا"
+    "about": {
+      "heading": { "en": "About Me", "ku": "دەربارەی من" },
+      "desc": { "en": "I am a passionate designer and developer with experience in video editing, web design, and digital marketing.", "ku": "من دیزاینەر و گەشەپێدەرێکی پڕخولیام، ئەزموونم هەیە لە مۆنتاژی ڤیدیۆ، دیزاینی وێبسایت، و بەبازاڕکردنی دیجیتاڵی." }
     },
-    "navWork": {
-      "en": "Works",
-      "ku": "کارەکانم"
-    },
-    "navContact": {
-      "en": "Contact",
-      "ku": "پەیوەندی"
-    },
-    "heroDesc": {
-      "en": "I am a digital designer & web developer.",
-      "ku": "من دیزاینەر و گەشەپێدەری وێبم."
-    },
-    "workTitle": {
-      "en": "Selected Works",
-      "ku": "هەڵبژاردەی کارەکانم"
-    },
-    "contactTitle": {
-      "en": "Let's Talk",
-      "ku": "با قسە بکەین"
+    "skills": {
+      "heading": { "en": "Expertise", "ku": "شارەزاییەکان" },
+      "list": [
+        { "name": { "en": "Video Editing & Motion", "ku": "مۆنتاژی ڤیدیۆ و مۆشن" }, "percent": "90" },
+        { "name": { "en": "Web Development", "ku": "گەشەپێدانی وێب" }, "percent": "85" }
+      ]
     }
   },
   "projects": [
     {
       "id": 1,
-      "title": {
-        "en": "Medical Lab Interface",
-        "ku": "ڕووکاری تاقیگەی پزیشکی"
-      },
-      "category": {
-        "en": "Web Design",
-        "ku": "وێب دیزاین"
-      },
-      "desc": {
-        "en": "A full dashboard for medical labs to manage tests.",
-        "ku": "داشبۆردێکی تەواو بۆ تاقیگەکان."
-      },
+      "title": { "en": "Shirinistan Cookie Advertisement", "ku": "ڕیکلامی ڤیدیۆیی بۆ بسکویتی شیرینستان" },
+      "category": { "en": "Video Production", "ku": "بەرهەمهێنانی ڤیدیۆ" },
+      "shortDesc": { "en": "A promotional video ad created for Shirinistan brand.", "ku": "ڤیدیۆیەکی ڕیکلامی سەرنجڕاکێش کە بۆ براندی شیرینستان ئامادە کراوە." },
+      "fullDesc": { "en": "This project involved writing the scenario, shooting, and full post-production including motion graphics to highlight the quality of Shirinistan cookies.", "ku": "ئەم پڕۆژەیە پێکهاتبوو لە نووسینی سیناریۆ، وێنەگرتن، و مۆنتاژێکی پرۆفیشناڵ لەگەڵ مۆشن گرافیک بۆ دەرخستنی کوالێتی بەرهەمەکانی شیرینستان." },
       "images": [
-        "https://via.placeholder.com/800x600",
-        "https://raw.githubusercontent.com/kurd-apps/RV-portfolio/main/images/1772601621845-icon.png"
+        "https://images.unsplash.com/photo-1558961363-fa8fdf82db35?q=80&w=800&auto=format&fit=crop"
       ],
-      "videoLink": "https://youtube.com/..."
+      "videoLink": "https://www.youtube.com/embed/dQw4w9WgXcQ"
     }
   ]
 }
