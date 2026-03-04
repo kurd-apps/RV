@@ -8,19 +8,24 @@
   ],
   "sections": {
     "hero": {
+      "navLogo": "",
       "name": {
         "en": "Rivan",
         "ku": "ڕیڤان"
       },
       "title": {
-        "en": "Laboratory Technician",
-        "ku": "یاریدەدەری تاقیگە"
+        "en": "Laboratory Technician & Web Developer",
+        "ku": "یاریدەدەری تاقیگە و گەشەپێدەری وێب"
       },
       "subtitle": {
         "en": "",
         "ku": ""
       },
-      "image": "images/1772618115973-rivan.png"
+      "image": "images/1772618115973-rivan.png",
+      "imagePos": {
+        "x": 50,
+        "y": 50
+      }
     },
     "about": {
       "heading": {
@@ -30,23 +35,44 @@
       "desc": {
         "en": "My name is Rivan. I am a 29-year-old professional with a strong background that bridges clinical laboratory science and digital technology. Having been actively involved in computing since 2008, I have completed a wide range of projects, including custom font design, software programming, web development, and media production. My diverse skill set encompasses web development, graphic design, and laboratory analysis, allowing me to consistently deliver creative and highly accurate results.",
         "ku": "من ڕیڤانم تەمەن ٢٩ ساڵە کە پاشخانێکی بەهێزم هەیە لە تێکەڵکردنی بواری شیکاری نەخۆشییەکان (تاقیگە) لەگەڵ تەکنەلۆجیای دیجیتاڵیدا. لە ساڵی ٢٠٠٨ـەوە بە بەردەوامی لەسەر کۆمپیوتەر کار دەکەم و خاوەنی چەندین پڕۆژەی جیاوازم؛ لەوانە دروستکردنی فۆنت، بەرنامەسازی، وێبسایت، و کاری میدیایی. تواناکانم بەسەر بوارەکانی پەرەپێدانی وێب، گرافیک دیزاین و کاری تاقیگەدا دابەشبووە، کە یارمەتیدەرمە بۆ بەرهەمهێنانی کاری داهێنەرانە و ورد."
-      },
-      "businessHeading": {
-        "en": "Kurdish Apps",
-        "ku": "کوردیش ئەپس"
-      },
-      "businessDesc": {
-        "en": "I am the founder of the business 'Kurdish Apps', which aims to create advanced applications and websites to serve the Kurdish digital community.",
-        "ku": "دامەزرێنەری بزنسی 'کوردیش ئەپس'م، کە ئامانجی دروستکردنی ئەپلیکەیشن و وێبسایتی پێشکەوتووە بۆ خزمەتکردنی کۆمەڵگەی دیجیتاڵی کوردی."
-      },
-      "businessLogo": "images/1772615613895-3004022713918530097299244561243761708459415n.png",
-      "businessSocials": {
-        "website": "",
-        "facebook": "https://www.facebook.com/Kusoft14/",
-        "instagram": "",
-        "youtube": "https://www.youtube.com/c/KurdishAppsTM"
       }
     },
+    "businesses": [
+      {
+        "heading": {
+          "en": "Kurdish Apps",
+          "ku": "کوردیش ئەپس"
+        },
+        "desc": {
+          "en": "I am the founder of the business 'Kurdish Apps', which aims to create advanced applications and websites to serve the Kurdish digital community.",
+          "ku": "دامەزرێنەری بزنسی 'کوردیش ئەپس'م، کە ئامانجی دروستکردنی ئەپلیکەیشن و وێبسایتی پێشکەوتووە بۆ خزمەتکردنی کۆمەڵگەی دیجیتاڵی کوردی."
+        },
+        "logo": "images/1772615613895-3004022713918530097299244561243761708459415n.png",
+        "socials": {
+          "website": "",
+          "facebook": "https://www.facebook.com/Kusoft14/",
+          "instagram": "",
+          "youtube": "https://www.youtube.com/c/KurdishAppsTM"
+        }
+      },
+      {
+        "heading": {
+          "en": "Shirinistan",
+          "ku": "شیرینستان"
+        },
+        "desc": {
+          "en": "Founder of 'Shirinistan,' a factory specializing in crafting premium sweets and cookies for events and celebrations.",
+          "ku": "دامەزرێنەری کارگەی 'شیرینستان'م کە تایبەتە بە دروستکردنی شیرینی بۆ بۆنە و ئاهەنگەکان."
+        },
+        "logo": "images/1772618930244-banner.png",
+        "socials": {
+          "website": "https://shirinstan.wuaze.com/",
+          "facebook": "https://www.facebook.com/Shirinstan",
+          "instagram": "https://www.instagram.com/shirinstan_sweets",
+          "youtube": ""
+        }
+      }
+    ],
     "cv": {
       "heading": {
         "en": "Experience",
@@ -71,7 +97,7 @@
         {
           "role": {
             "ku": "دامەزرێنەر",
-            "en": ""
+            "en": "Founder"
           },
           "place": {
             "ku": "سلێمانی",
@@ -94,21 +120,21 @@
         {
           "name": {
             "ku": "تاقیگە",
-            "en": "Labratory"
+            "en": "Laboratory"
           },
           "percent": "95"
         },
         {
           "name": {
             "ku": "وێبسایت",
-            "en": "Website"
+            "en": "Website Development"
           },
           "percent": "85"
         },
         {
           "name": {
             "ku": "دیزاین",
-            "en": "Design"
+            "en": "Graphic Design"
           },
           "percent": "85"
         }
@@ -147,7 +173,7 @@
     {
       "title": {
         "ku": "شیرینستان",
-        "en": "Shirinstan"
+        "en": "Shirinistan"
       },
       "category": "وێب دیزاین",
       "shortDesc": {
@@ -155,13 +181,14 @@
         "en": "Shirinistan: Where Authentic Taste Meets Digital Innovation"
       },
       "fullDesc": {
-        "ku": "<p data-path-to-node=\"4\">وەک کارسازێک و کەسێکی خولیای تەکنەلۆجیا، یەکێک لەو پڕۆژانەی کە زۆر جێگەی شانازیمە، دامەزراندن و بەڕێوەبردنی کارگەی <b data-path-to-node=\"4\" data-index-in-node=\"115\">«شیرینستان»ـە</b>. شیرینستان تەنها کارگەیەکی ئاسایی نییە بۆ دروستکردنی شیرینی، بەڵکو براندێکە کە تایبەتە بە دروستکردنی شیرینی و کوکیز بۆ بۆنە و ئاهەنگەکان، بە کوالێتییەکی بەرز و تامی تایبەت.</p><p data-path-to-node=\"5\">لەپاڵ بەڕێوەبردنی کارگە و سەرپەرشتیکردنی بەرهەمەکان، تەواوی ناسنامەی دیجیتاڵی و پەرەپێدانی براندەکەم لە ئەستۆ گرتووە. بەکارهێنانی پاشخانم لە پەرەپێدانی وێب و کاری میدیاییدا وایکردووە کە شیرینستان خاوەنی پێگەیەکی بەهێز بێت لە جیهانی دیجیتاڵیدا. بەشێک لە کارەکانم بۆ ئەم پڕۆژەیە بریتین لە:</p><ul data-path-to-node=\"6\"><li><p data-path-to-node=\"6,0,0\"><b data-path-to-node=\"6,0,0\" data-index-in-node=\"0\">گەشەپێدانی وێبسایت:</b> دروستکردنی ماڵپەڕێکی تایبەت بە براندەکە بۆ پیشاندانی بەرهەمەکان و ئاسانکاری بۆ کڕیاران. <response-element class=\"\" ng-version=\"0.0.0-PLACEHOLDER\"><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><link-block _nghost-ng-c3806555948=\"\" class=\"ng-star-inserted\"><!----><!----><a _ngcontent-ng-c3806555948=\"\" target=\"_blank\" rel=\"noopener\" externallink=\"\" _nghost-ng-c1424411112=\"\" jslog=\"197247;track:generic_click,impression,attention;BardVeMetadataKey:[[&quot;r_fe9b197b36b87055&quot;,&quot;c_48e840578d31d4ab&quot;,null,&quot;rc_909a54d4136f5631&quot;,null,null,&quot;ckb&quot;,null,1,null,null,1,0]]\" href=\"https://shirinstan.wuaze.com/\" class=\"ng-star-inserted\" data-hveid=\"0\" decode-data-ved=\"1\" data-ved=\"0CAAQ_4QMahgKEwiqm97a-YWTAxUAAAAAHQAAAAAQtgE\">سەردانی وێبسایتی شیرینستان بکە</a><!----></link-block><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----></response-element>.</p></li><li><p data-path-to-node=\"6,1,0\"><b data-path-to-node=\"6,1,0\" data-index-in-node=\"0\">بەرهەمهێنانی میدیایی و ڤیدیۆیی:</b> ئامادەکردنی سیناریۆ و بەرهەمهێنانی ڤیدیۆی ڕێکلامی سەرنجڕاکێش. لەم کارانەدا جەختێکی زۆرم کردووەتەوە سەر بەکارهێنانی دەق و گێڕانەوەی کوردی ڕەسەن، بۆ ئەوەی بەرهەمەکانمان باشترین پەیوەندی لەگەڵ کۆمەڵگەی ناوخۆییدا دروست بکەن.</p></li><li><p data-path-to-node=\"6,2,0\"><b data-path-to-node=\"6,2,0\" data-index-in-node=\"0\">بەڕێوەبردنی سۆشیاڵ میدیا:</b> دروستکردن و بەڕێوەبردنی تۆڕە کۆمەڵایەتییەکان بۆ بڵاوکردنەوەی بەرهەمەکان و پەیوەندیکردنی ڕاستەوخۆ لەگەڵ کڕیاران. دەتوانن کارەکانمان لەم لینکانەی خوارەوە ببینن:</p><ul data-path-to-node=\"6,2,1\"><li><p data-path-to-node=\"6,2,1,0,0\"><b data-path-to-node=\"6,2,1,0,0\" data-index-in-node=\"0\">فەیسبووک (Facebook):</b> <response-element class=\"\" ng-version=\"0.0.0-PLACEHOLDER\"><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><link-block _nghost-ng-c3806555948=\"\" class=\"ng-star-inserted\"><!----><!----><a _ngcontent-ng-c3806555948=\"\" target=\"_blank\" rel=\"noopener\" externallink=\"\" _nghost-ng-c1424411112=\"\" jslog=\"197247;track:generic_click,impression,attention;BardVeMetadataKey:[[&quot;r_fe9b197b36b87055&quot;,&quot;c_48e840578d31d4ab&quot;,null,&quot;rc_909a54d4136f5631&quot;,null,null,&quot;ckb&quot;,null,1,null,null,1,0]]\" href=\"https://www.facebook.com/Shirinstan\" class=\"ng-star-inserted\" data-hveid=\"0\" decode-data-ved=\"1\" data-ved=\"0CAAQ_4QMahgKEwiqm97a-YWTAxUAAAAAHQAAAAAQtwE\">پەیجی فەرمیی شیرینستان</a><!----></link-block><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----></response-element></p></li><li><p data-path-to-node=\"6,2,1,1,0\"><b data-path-to-node=\"6,2,1,1,0\" data-index-in-node=\"0\">ئینیستاگرام (Instagram):</b> <response-element class=\"\" ng-version=\"0.0.0-PLACEHOLDER\"><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><link-block _nghost-ng-c3806555948=\"\" class=\"ng-star-inserted\"><!----><!----><a _ngcontent-ng-c3806555948=\"\" target=\"_blank\" rel=\"noopener\" externallink=\"\" _nghost-ng-c1424411112=\"\" jslog=\"197247;track:generic_click,impression,attention;BardVeMetadataKey:[[&quot;r_fe9b197b36b87055&quot;,&quot;c_48e840578d31d4ab&quot;,null,&quot;rc_909a54d4136f5631&quot;,null,null,&quot;ckb&quot;,null,1,null,null,1,0]]\" href=\"https://www.instagram.com/shirinstan_sweets\" class=\"ng-star-inserted\" data-hveid=\"0\" decode-data-ved=\"1\" data-ved=\"0CAAQ_4QMahgKEwiqm97a-YWTAxUAAAAAHQAAAAAQuAE\">بینینی وێنەی بەرهەمەکانمان</a><!----></link-block><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----></response-element></p></li><li><p data-path-to-node=\"6,2,1,2,0\"><b data-path-to-node=\"6,2,1,2,0\" data-index-in-node=\"0\">تیک تۆک (TikTok):</b> <response-element class=\"\" ng-version=\"0.0.0-PLACEHOLDER\"><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><link-block _nghost-ng-c3806555948=\"\" class=\"ng-star-inserted\"><!----><!----><a _ngcontent-ng-c3806555948=\"\" target=\"_blank\" rel=\"noopener\" externallink=\"\" _nghost-ng-c1424411112=\"\" jslog=\"197247;track:generic_click,impression,attention;BardVeMetadataKey:[[&quot;r_fe9b197b36b87055&quot;,&quot;c_48e840578d31d4ab&quot;,null,&quot;rc_909a54d4136f5631&quot;,null,null,&quot;ckb&quot;,null,1,null,null,1,0]]\" href=\"https://www.tiktok.com/@shirin_stan\" class=\"ng-star-inserted\" data-hveid=\"0\" decode-data-ved=\"1\" data-ved=\"0CAAQ_4QMahgKEwiqm97a-YWTAxUAAAAAHQAAAAAQuQE\">ڤیدیۆ کورت و سەرنجڕاکێشەکانمان</a><!----></link-block><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----></response-element></p></li></ul></li></ul><p data-path-to-node=\"7\">ئەم پڕۆژەیە بەڵگەیەکی ڕوونە لەسەر توانای من بۆ گۆڕینی بیرۆکەیەک بۆ بزنسێکی ڕاستەقینە، و بەکارهێنانی تواناکانم لە دیزاین، بەرنامەسازی، و مارکێتینگ بۆ سەرخستنی.</p>",
-        "en": "<p data-path-to-node=\"3\">As an entrepreneur with a passion for technology, one of the projects I am most proud of founding and managing is <b data-path-to-node=\"3\" data-index-in-node=\"114\">Shirinistan</b>. More than just a traditional confectionery, Shirinistan is a specialized factory dedicated to crafting premium sweets and cookies for events and celebrations, focusing on high quality and unique flavors.</p><p data-path-to-node=\"4\">In addition to managing the factory and overseeing product development, I have personally directed the brand's entire digital identity. By leveraging my background in web development and digital media, I have established a strong online presence for Shirinistan. My core contributions to this project include:</p><ul data-path-to-node=\"5\"><li><p data-path-to-node=\"5,0,0\"><b data-path-to-node=\"5,0,0\" data-index-in-node=\"0\">Web Development:</b> Designing and developing a dedicated website to showcase our products and streamline the customer experience. <response-element class=\"\" ng-version=\"0.0.0-PLACEHOLDER\"><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><link-block _nghost-ng-c3806555948=\"\" class=\"ng-star-inserted\"><!----><!----><a _ngcontent-ng-c3806555948=\"\" target=\"_blank\" rel=\"noopener\" externallink=\"\" _nghost-ng-c1424411112=\"\" jslog=\"197247;track:generic_click,impression,attention;BardVeMetadataKey:[[&quot;r_7a5cb758b5ad5abd&quot;,&quot;c_48e840578d31d4ab&quot;,null,&quot;rc_c4b41007a76a1aa2&quot;,null,null,&quot;fa&quot;,null,1,null,null,1,0]]\" href=\"https://shirinstan.wuaze.com/\" class=\"ng-star-inserted\" data-hveid=\"0\" decode-data-ved=\"1\" data-ved=\"0CAAQ_4QMahgKEwiqm97a-YWTAxUAAAAAHQAAAAAQzAE\">Visit the Shirinistan Website</a><!----></link-block><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----></response-element></p></li><li><p data-path-to-node=\"5,1,0\"><b data-path-to-node=\"5,1,0\" data-index-in-node=\"0\">Media &amp; Video Production:</b> Scripting and producing engaging video advertisements. A vital part of my marketing strategy is writing the ad scenarios and presenting the speech in authentic Kurdish rather than English, ensuring a deep and genuine connection with our local community.</p></li><li><p data-path-to-node=\"5,2,0\"><b data-path-to-node=\"5,2,0\" data-index-in-node=\"0\">Social Media Management:</b> Creating and managing our social media platforms to distribute content and engage directly with our customers. You can explore my work across our channels:</p><ul data-path-to-node=\"5,2,1\"><li><p data-path-to-node=\"5,2,1,0,0\"><b data-path-to-node=\"5,2,1,0,0\" data-index-in-node=\"0\">Facebook:</b> <response-element class=\"\" ng-version=\"0.0.0-PLACEHOLDER\"><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><link-block _nghost-ng-c3806555948=\"\" class=\"ng-star-inserted\"><!----><!----><a _ngcontent-ng-c3806555948=\"\" target=\"_blank\" rel=\"noopener\" externallink=\"\" _nghost-ng-c1424411112=\"\" jslog=\"197247;track:generic_click,impression,attention;BardVeMetadataKey:[[&quot;r_7a5cb758b5ad5abd&quot;,&quot;c_48e840578d31d4ab&quot;,null,&quot;rc_c4b41007a76a1aa2&quot;,null,null,&quot;fa&quot;,null,1,null,null,1,0]]\" href=\"https://www.facebook.com/Shirinstan\" class=\"ng-star-inserted\" data-hveid=\"0\" decode-data-ved=\"1\" data-ved=\"0CAAQ_4QMahgKEwiqm97a-YWTAxUAAAAAHQAAAAAQzQE\">Shirinistan Official Page</a><!----></link-block><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----></response-element></p></li><li><p data-path-to-node=\"5,2,1,1,0\"><b data-path-to-node=\"5,2,1,1,0\" data-index-in-node=\"0\">Instagram:</b> <response-element class=\"\" ng-version=\"0.0.0-PLACEHOLDER\"><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><link-block _nghost-ng-c3806555948=\"\" class=\"ng-star-inserted\"><!----><!----><a _ngcontent-ng-c3806555948=\"\" target=\"_blank\" rel=\"noopener\" externallink=\"\" _nghost-ng-c1424411112=\"\" jslog=\"197247;track:generic_click,impression,attention;BardVeMetadataKey:[[&quot;r_7a5cb758b5ad5abd&quot;,&quot;c_48e840578d31d4ab&quot;,null,&quot;rc_c4b41007a76a1aa2&quot;,null,null,&quot;fa&quot;,null,1,null,null,1,0]]\" href=\"https://www.instagram.com/shirinstan_sweets\" class=\"ng-star-inserted\" data-hveid=\"0\" decode-data-ved=\"1\" data-ved=\"0CAAQ_4QMahgKEwiqm97a-YWTAxUAAAAAHQAAAAAQzgE\">Product Gallery &amp; Updates</a><!----></link-block><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----></response-element></p></li><li><p data-path-to-node=\"5,2,1,2,0\"><b data-path-to-node=\"5,2,1,2,0\" data-index-in-node=\"0\">TikTok:</b> <response-element class=\"\" ng-version=\"0.0.0-PLACEHOLDER\"><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><link-block _nghost-ng-c3806555948=\"\" class=\"ng-star-inserted\"><!----><!----><a _ngcontent-ng-c3806555948=\"\" target=\"_blank\" rel=\"noopener\" externallink=\"\" _nghost-ng-c1424411112=\"\" jslog=\"197247;track:generic_click,impression,attention;BardVeMetadataKey:[[&quot;r_7a5cb758b5ad5abd&quot;,&quot;c_48e840578d31d4ab&quot;,null,&quot;rc_c4b41007a76a1aa2&quot;,null,null,&quot;fa&quot;,null,1,null,null,1,0]]\" href=\"https://www.tiktok.com/@shirin_stan\" class=\"ng-star-inserted\" data-hveid=\"0\" decode-data-ved=\"1\" data-ved=\"0CAAQ_4QMahgKEwiqm97a-YWTAxUAAAAAHQAAAAAQzwE\">Short-form Creative Videos</a><!----></link-block><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----></response-element></p></li></ul></li></ul><p data-path-to-node=\"6\">This project stands as a clear testament to my ability to transform an idea into a thriving business, utilizing my diverse skills in programming, graphic design, and media production to drive success.</p>"
+        "ku": "وەک کارسازێک و کەسێکی خولیای تەکنەلۆجیا، یەکێک لەو پڕۆژانەی کە زۆر جێگەی شانازیمە، دامەزراندن و بەڕێوەبردنی کارگەی <b>«شیرینستان»ـە</b>. شیرینستان تەنها کارگەیەکی ئاسایی نییە بۆ دروستکردنی شیرینی، بەڵکو براندێکە کە تایبەتە بە دروستکردنی شیرینی و کوکیز بۆ بۆنە و ئاهەنگەکان، بە کوالێتییەکی بەرز و تامی تایبەت.<br><br>لەپاڵ بەڕێوەبردنی کارگە و سەرپەرشتیکردنی بەرهەمەکان، تەواوی ناسنامەی دیجیتاڵی و پەرەپێدانی براندەکەم لە ئەستۆ گرتووە. بەکارهێنانی پاشخانم لە پەرەپێدانی وێب و کاری میدیاییدا وایکردووە کە شیرینستان خاوەنی پێگەیەکی بەهێز بێت لە جیهانی دیجیتاڵیدا. بەشێک لە کارەکانم بۆ ئەم پڕۆژەیە بریتین لە:<br><ul><li><b>گەشەپێدانی وێبسایت:</b> دروستکردنی ماڵپەڕێکی تایبەت بە براندەکە بۆ پیشاندانی بەرهەمەکان و ئاسانکاری بۆ کڕیاران.</li><li><b>بەرهەمهێنانی میدیایی و ڤیدیۆیی:</b> ئامادەکردنی سیناریۆ و بەرهەمهێنانی ڤیدیۆی ڕێکلامی سەرنجڕاکێش. لەم کارانەدا جەختێکی زۆرم کردووەتەوە سەر بەکارهێنانی دەق و گێڕانەوەی کوردی ڕەسەن.</li><li><b>بەڕێوەبردنی سۆشیاڵ میدیا:</b> دروستکردن و بەڕێوەبردنی تۆڕە کۆمەڵایەتییەکان بۆ بڵاوکردنەوەی بەرهەمەکان.</li></ul><br>ئەم پڕۆژەیە بەڵگەیەکی ڕوونە لەسەر توانای من بۆ گۆڕینی بیرۆکەیەک بۆ بزنسێکی ڕاستەقینە، و بەکارهێنانی تواناکانم لە دیزاین، بەرنامەسازی، و مارکێتینگ بۆ سەرخستنی.",
+        "en": "As an entrepreneur with a passion for technology, one of the projects I am most proud of founding and managing is <b>Shirinistan</b>. More than just a traditional confectionery, Shirinistan is a specialized factory dedicated to crafting premium sweets and cookies for events and celebrations, focusing on high quality and unique flavors.<br><br>In addition to managing the factory and overseeing product development, I have personally directed the brand's entire digital identity. By leveraging my background in web development and digital media, I have established a strong online presence for Shirinistan. My core contributions to this project include:<br><ul><li><b>Web Development:</b> Designing and developing a dedicated website to showcase our products and streamline the customer experience.</li><li><b>Media & Video Production:</b> Scripting and producing engaging video advertisements using authentic Kurdish scenarios.</li><li><b>Social Media Management:</b> Creating and managing our social media platforms to distribute content and engage directly with our customers.</li></ul><br>This project stands as a clear testament to my ability to transform an idea into a thriving business, utilizing my diverse skills in programming, graphic design, and media production to drive success."
       },
       "images": [
         "images/1772618930244-banner.png"
       ],
-      "videoLink": "https://youtu.be/jUgfWwRHSwA?si=uMYiC0EozJw2dCvM",
+      "bannerImage": "images/1772618930244-banner.png",
+      "videoLink": "https://youtu.be/jUgfWwRHSwA",
       "date": "2025-11-01",
       "websiteLink": "https://shirinstan.wuaze.com/",
       "displayType": "image"
