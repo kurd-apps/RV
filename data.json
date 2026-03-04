@@ -85,5 +85,26 @@
       }
     }
   },
-  "projects": []
+  "projects": [
+    {
+      "title": {
+        "ku": "",
+        "en": ""
+      },
+      "category": "وێب دیزاین",
+      "shortDesc": {
+        "ku": "",
+        "en": ""
+      },
+      "fullDesc": {
+        "ku": "",
+        "en": ""
+      },
+      "images": [],
+      "videoLink": "",
+      "date": "",
+      "websiteLink": "https://www.facebook.com/Kusoft14/",
+      "displayType": "video"
+    }
+  ]
 }
