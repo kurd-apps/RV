@@ -40,6 +40,23 @@
     "businesses": [
       {
         "heading": {
+          "ku": "بزنسی نوێ",
+          "en": "New Business"
+        },
+        "desc": {
+          "ku": "",
+          "en": ""
+        },
+        "logo": "",
+        "socials": {
+          "website": "",
+          "facebook": "",
+          "instagram": "",
+          "youtube": ""
+        }
+      },
+      {
+        "heading": {
           "en": "Kurdish Apps",
           "ku": "کوردیش ئەپس"
         },
