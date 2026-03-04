@@ -1,9 +1,15 @@
 {
-  "categories": ["وێب دیزاین", "مۆنتاژی ڤیدیۆ", "گرافیک دیزاین", "بەرنامەسازی", "بەرهەمهێنانی ڕیکلام"],
+  "categories": [
+    "وێب دیزاین",
+    "مۆنتاژی ڤیدیۆ",
+    "گرافیک دیزاین",
+    "بەرنامەسازی",
+    "بەرهەمهێنانی ڕیکلام"
+  ],
   "sections": {
     "hero": {
       "name": { "en": "RV Portfolio", "ku": "پۆرتفۆلیۆی RV" },
-      "title": { "en": "Creative Director & Developer", "ku": "دەرهێنەری داهێنەر و گەشەپێدەر" },
+      "title": { "en": "Creative Director & Web Developer", "ku": "دەرهێنەری داهێنەر و گەشەپێدەری وێب" },
       "subtitle": { "en": "I build digital experiences.", "ku": "ئەزموونی دیجیتاڵی دروست دەکەم." },
       "image": ""
     },
@@ -11,7 +17,12 @@
       "heading": { "en": "About Me", "ku": "دەربارەی من" },
       "desc": { "en": "I am a passionate designer...", "ku": "من دیزاینەرێکی پڕخولیام و ئەزموونێکی زۆرم هەیە لە بواری دیجیتاڵی." },
       "businessHeading": { "en": "Kurdish Apps", "ku": "کوردیش ئەپس (Kurdish Apps)" },
-      "businessDesc": { "en": "Founder of Kurdish Apps, developing digital solutions.", "ku": "دامەزرێنەری بزنسی 'کوردیش ئەپس'م، کە ئامانجی دروستکردنی ئەپلیکەیشن و وێبسایتی پێشکەوتووە بۆ خزمەتکردنی کۆمەڵگەی دیجیتاڵی کوردی." }
+      "businessDesc": { "en": "Founder of Kurdish Apps.", "ku": "دامەزرێنەری بزنسی 'کوردیش ئەپس'م، کە ئامانجی دروستکردنی ئەپلیکەیشن و وێبسایتی پێشکەوتووە بۆ خزمەتکردنی کۆمەڵگەی دیجیتاڵی کوردی." },
+      "businessSocials": {
+        "website": "https://kurdishapps.com",
+        "facebook": "",
+        "instagram": ""
+      }
     },
     "cv": { "heading": { "en": "Experience", "ku": "ئەزموونەکان" }, "items": [] },
     "skills": { "heading": { "en": "Expertise", "ku": "شارەزاییەکان" }, "list": [] },
@@ -21,25 +32,13 @@
       "email": "hello@example.com",
       "phone": "+964 770 000 0000",
       "address": { "en": "Iraq", "ku": "عێراق" },
-      "formKey": "",
+      "formKey": "e11bef32-363b-4c18-b93e-b519cf166cd0",
       "socials": {
-        "facebook": "https://facebook.com",
-        "behance": "https://behance.net",
-        "instagram": "https://instagram.com"
+        "facebook": "",
+        "behance": "",
+        "instagram": ""
       }
     }
   },
-  "projects": [
-    {
-      "title": { "en": "Sample Project", "ku": "پڕۆژەی نموونە" },
-      "category": "وێب دیزاین",
-      "date": "2026-03-01",
-      "displayType": "website",
-      "shortDesc": { "en": "Short description.", "ku": "کورتەی کارەکە..." },
-      "fullDesc": { "en": "Full details.", "ku": "وردەکاری تەواو..." },
-      "videoLink": "",
-      "websiteLink": "https://kurdishapps.com",
-      "images": []
-    }
-  ]
+  "projects": []
 }
