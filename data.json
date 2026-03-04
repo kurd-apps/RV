@@ -90,25 +90,25 @@
   "projects": [
     {
       "title": {
-        "ku": "",
+        "ku": "تێست",
         "en": ""
       },
-      "category": "",
+      "category": "وێب دیزاین",
       "shortDesc": {
-        "ku": "",
-        "en": ""
+        "ku": "دد",
+        "en": "ددد"
       },
       "fullDesc": {
-        "ku": "",
-        "en": ""
+        "ku": "دد",
+        "en": "دددد"
       },
       "images": [
         "https://raw.githubusercontent.com/kurd-apps/RV/main/images/1772614793219-icon.png"
       ],
-      "videoLink": "",
-      "date": "",
-      "websiteLink": "",
-      "displayType": "video"
+      "videoLink": "https://www.youtube.com/watch?v=3pNd1BAJmZU",
+      "date": "2026-03-04",
+      "websiteLink": "https://shirinstan.wuaze.com/",
+      "displayType": "website"
     }
   ]
 }
