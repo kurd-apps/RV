@@ -1,19 +1,26 @@
 {
+  "categories": [
+    "وێب دیزاین",
+    "مۆنتاژی ڤیدیۆ",
+    "گرافیک دیزاین",
+    "بەرنامەسازی",
+    "بەرهەمهێنانی ڕیکلام"
+  ],
   "sections": {
     "hero": {
       "name": {
-        "en": "Your Name",
-        "ku": "ناوی تۆ."
+        "en": "RV Portfolio",
+        "ku": "پۆرتفۆلیۆی RV"
       },
       "title": {
-        "en": "Creative Director & Developer",
-        "ku": "دەرهێنەری داهێنەر و گەشەپێدەر"
+        "en": "Creative Director & Web Developer",
+        "ku": "دەرهێنەری داهێنەر و گەشەپێدەری وێب"
       },
       "subtitle": {
-        "en": "I build digital experiences.",
-        "ku": "ئەزموونی دیجیتاڵی دروست دەکەم."
+        "en": "I build digital experiences and craft visual stories.",
+        "ku": "من ئەزموونی دیجیتاڵی و چیرۆکی بینراو دروست دەکەم."
       },
-      "image": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=400&auto=format&fit=crop"
+      "image": ""
     },
     "about": {
       "heading": {
@@ -21,8 +28,8 @@
         "ku": "دەربارەی من"
       },
       "desc": {
-        "en": "I am a passionate designer...",
-        "ku": "من دیزاینەرێکی پڕخولیام..."
+        "en": "I am a passionate designer and developer with experience in video editing, web design, and digital marketing.",
+        "ku": "من دیزاینەر و گەشەپێدەرێکی پڕخولیام، ئەزموونم هەیە لە مۆنتاژی ڤیدیۆ، دیزاینی وێبسایت، و بەبازاڕکردنی دیجیتاڵی."
       }
     },
     "cv": {
@@ -30,14 +37,45 @@
         "en": "Experience",
         "ku": "ئەزموونەکان"
       },
-      "items": []
+      "items": [
+        {
+          "role": {
+            "en": "Video Editor & Web Developer",
+            "ku": "مۆنتێر و گەشەپێدەری وێب"
+          },
+          "place": {
+            "en": "Freelance",
+            "ku": "کاری سەربەخۆ"
+          },
+          "year": "2023 - 2026",
+          "desc": {
+            "en": "Creating high-quality videos and modern websites.",
+            "ku": "دروستکردنی ڤیدیۆی کوالێتی بەرز و وێبسایتی مۆدێرن بە TailwindCSS."
+          }
+        }
+      ]
     },
     "skills": {
       "heading": {
         "en": "Expertise",
         "ku": "شارەزاییەکان"
       },
-      "list": []
+      "list": [
+        {
+          "name": {
+            "en": "Video Editing & Motion",
+            "ku": "مۆنتاژی ڤیدیۆ و مۆشن"
+          },
+          "percent": "90"
+        },
+        {
+          "name": {
+            "en": "Web Development",
+            "ku": "دروستکردنی وێبسایت"
+          },
+          "percent": "85"
+        }
+      ]
     },
     "clients": {
       "heading": {
@@ -51,78 +89,36 @@
         "en": "Let's Work Together",
         "ku": "پەیوەندیم پێوە بکە"
       },
-      "email": "hello@example.com",
+      "email": "your-email@example.com",
       "phone": "+964 770 000 0000",
       "address": {
         "en": "Sulaymaniyah, Iraq",
         "ku": "سلێمانی، عێراق"
-      }
+      },
+      "formKey": ""
     }
   },
   "projects": [
     {
       "title": {
-        "ku": "داشبۆردی تاقیگەی پزیشکی",
-        "en": "Medical Lab Dashboard"
+        "en": "Shirinistan Cookie Advertisement",
+        "ku": "ڕیکلامی ڤیدیۆیی بۆ شیرینستان"
       },
-      "category": "وێب دیزاین",
-      "date": "2026-03-01",
+      "category": "بەرهەمهێنانی ڕیکلام",
+      "date": "2026-02-10",
       "shortDesc": {
-        "ku": "سیستەمێکی تەواو بۆ تاقیگەکان.",
-        "en": "A complete system."
+        "en": "A promotional video ad created for Shirinistan brand.",
+        "ku": "ڤیدیۆیەکی ڕیکلامی سەرنجڕاکێش کە بۆ براندی بسکویتی شیرینستان ئامادە کراوە."
       },
       "fullDesc": {
-        "ku": "<b>سیستەمێکی زۆر پێشکەوتوو</b> کە دەتوانێت هەموو کارەکان ئاسان بکات.",
-        "en": "<b>Detailed</b> description here."
+        "en": "This project involved writing the scenario, shooting, and full post-production to highlight the quality of the cookies.",
+        "ku": "<b>سیناریۆ و بەرهەمهێنان:</b> ئەم پڕۆژەیە پێکهاتبوو لە نووسینی سیناریۆ، وێنەگرتن، و مۆنتاژێکی پرۆفیشناڵ لەگەڵ تێکستی کوردی بۆ دەرخستنی کوالێتی بەرهەمەکانی شیرینستان."
       },
-      "videoLink": "",
-      "websiteLink": "https://example.com",
+      "videoLink": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+      "websiteLink": "",
       "images": [
-        "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?q=80&w=800&auto=format&fit=crop"
+        "https://images.unsplash.com/photo-1558961363-fa8fdf82db35?q=80&w=800&auto=format&fit=crop"
       ]
-    },
-    {
-      "title": {
-        "ku": "",
-        "en": ""
-      },
-      "category": "تر...",
-      "date": "",
-      "shortDesc": {
-        "ku": "",
-        "en": ""
-      },
-      "fullDesc": {
-        "ku": "",
-        "en": ""
-      },
-      "videoLink": "",
-      "websiteLink": "",
-      "images": []
-    },
-    {
-      "title": {
-        "ku": "",
-        "en": ""
-      },
-      "category": "وێب دیزاین",
-      "date": "",
-      "shortDesc": {
-        "ku": "",
-        "en": ""
-      },
-      "fullDesc": {
-        "ku": "",
-        "en": ""
-      },
-      "videoLink": "",
-      "websiteLink": "",
-      "images": []
     }
-  ],
-  "categories": [
-    "وێب دیزاین",
-    "مۆنتاژی ڤیدیۆ",
-    "گرافیک دیزاین"
   ]
 }
