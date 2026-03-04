@@ -88,23 +88,23 @@
   "projects": [
     {
       "title": {
-        "ku": "",
+        "ku": "تەست",
         "en": ""
       },
       "category": "وێب دیزاین",
       "shortDesc": {
-        "ku": "",
-        "en": ""
+        "ku": "دد",
+        "en": "دد"
       },
       "fullDesc": {
-        "ku": "",
-        "en": ""
+        "ku": "دوو",
+        "en": "وو"
       },
       "images": [],
       "videoLink": "",
-      "date": "",
+      "date": "2026-03-04",
       "websiteLink": "https://www.facebook.com/Kusoft14/",
-      "displayType": "video"
+      "displayType": "website"
     }
   ]
 }
