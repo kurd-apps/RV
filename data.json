@@ -60,6 +60,13 @@
             "en": "Video Editing"
           },
           "percent": "90"
+        },
+        {
+          "name": {
+            "ku": "",
+            "en": ""
+          },
+          "percent": ""
         }
       ]
     },
@@ -88,22 +95,22 @@
   "projects": [
     {
       "title": {
-        "ku": "test",
+        "ku": "",
         "en": "trff"
       },
       "category": {
-        "ku": "ff",
+        "ku": "",
         "en": "ff"
       },
       "shortDesc": {
-        "ku": "fff",
+        "ku": "",
         "en": "ff"
       },
       "fullDesc": {
-        "ku": "f",
+        "ku": "",
         "en": "fff"
       },
-      "videoLink": "f",
+      "videoLink": "https://shirinstan.wuaze.com/?i=1",
       "images": [
         "https://raw.githubusercontent.com/kurd-apps/RV/main/images/1772604123291-GeminiGeneratedImagexi5avdxi5avdxi5a.png",
         "https://raw.githubusercontent.com/kurd-apps/RV/main/images/1772604133141-GeminiGeneratedImagerdqhwerdqhwerdqh.png"
