@@ -8,7 +8,7 @@
   ],
   "sections": {
     "hero": {
-      "navLogo": "images/1772624195718-unnamed.jpg",
+      "navLogo": "images/1774964183943-Untitled1.png",
       "name": {
         "en": "Rivan",
         "ku": "ڕیڤان"
@@ -118,6 +118,21 @@
             "ku": "دامەزرێنەری کارگەی 'شیرینستان'م کە تایبەتە بە دروستکردنی شیرینی بۆ بۆنە و ئاهەنگەکان",
             "en": "Founder of 'Shirinistan,' a factory specializing in crafting premium sweets and cookies for events and celebrations."
           }
+        },
+        {
+          "role": {
+            "ku": "تایگە",
+            "en": "Lab"
+          },
+          "place": {
+            "ku": "سلێمانی",
+            "en": "Sulaymanyah"
+          },
+          "year": "30/5/2020 - 1/11/2025",
+          "desc": {
+            "ku": "",
+            "en": ""
+          }
         }
       ]
     },
@@ -147,6 +162,13 @@
             "en": "Design"
           },
           "percent": "85"
+        },
+        {
+          "name": {
+            "ku": "ژیری دەستکرد",
+            "en": "AI"
+          },
+          "percent": "75"
         }
       ]
     },
