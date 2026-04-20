@@ -81,6 +81,24 @@
           "youtube": "https://www.youtube.com/c/KurdishAppsTM"
         },
         "extraLinks": []
+      },
+      {
+        "heading": {
+          "ku": "کارلۆگ",
+          "en": "CarLog"
+        },
+        "desc": {
+          "ku": "ئەپی کارلۆگ سادەترین و خێراترین ڕێگەیە بۆ ڕێکخستنی خەرجی و خزمەتگوزارییەکانی ئۆتۆمبێلەکەت. لە ڕێگەی ئەم ئەپەوە دەتوانیت بە وردی چاودێری سووتەمەنی، کاتی گۆڕینی ڕۆن و پارچە یەدەگەکان بکەیت.",
+          "en": "CarLog is the simplest and fastest way to organize your vehicle's expenses and services. Through this app, you can accurately monitor fuel consumption, oil change intervals, and spare parts maintenance."
+        },
+        "logo": "images/1776693850354-icon.png",
+        "socials": {
+          "website": "",
+          "facebook": "",
+          "instagram": "",
+          "youtube": ""
+        },
+        "extraLinks": []
       }
     ],
     "cv": {
