@@ -306,6 +306,36 @@
   "projects": [
     {
       "title": {
+        "ku": "KAS Finance: پێشکەوتووترین سیستەمی بەڕێوەبردنی دارایی",
+        "en": "KAS Finance: The Ultimate Financial Management Solution"
+      },
+      "category": "وێب دیزاین",
+      "shortDesc": {
+        "ku": "سیستەمی KAS Finance پلاتفۆرمێکی گشتگیر و پێشکەوتووە بۆ چاودێریکردن و شیکردنەوەی دارایی، کە تایبەت دیزاین کراوە بۆ ڕێکخستنی داهات و خەرجییەکانی دامەزراوەکە بە وردی و بە شێوەیەکی ئۆتۆماتیکی.",
+        "en": "KAS Finance is a comprehensive financial tracking and analytics platform designed to streamline the management of institutional income and expenditures. It provides a crystal-clear view of your financial health through real-time data visualization and detailed reporting."
+      },
+      "fullDesc": {
+        "ku": "<p data-path-to-node=\"11\"><b data-path-to-node=\"11\" data-index-in-node=\"0\">تایبەتمەندییە سەرەکییەکان:</b></p><ul data-path-to-node=\"12\"><li><p data-path-to-node=\"12,0,0\"><b data-path-to-node=\"12,0,0\" data-index-in-node=\"0\">داشبۆردی دارایی دینامیکی:</b> بینینی کۆی گشتی چالاکییەکان، داهات، خەرجی و قازانجی ماوە (Net Remain) بە شێوەیەکی خێرا و ڕوون.</p></li><li><p data-path-to-node=\"12,1,0\"><b data-path-to-node=\"12,1,0\" data-index-in-node=\"0\">شیکردنەوەی داتا (Analytics):</b> پیشاندانی گۆڕانکارییە داراییەکان لە ڕێگەی گراف و چارتی پێشکەوتوو بۆ تێگەیشتن لە ڕەوتی ساڵانە و مانگانە.</p></li><li><p data-path-to-node=\"12,2,0\"><b data-path-to-node=\"12,2,0\" data-index-in-node=\"0\">وردەکاری خەرجییەکان:</b> توانای جیاکردنەوە و تۆمارکردنی وردی خەرجییە لاوەکییەکان وەک (کرێی ڕاهێنەر، خەرجی نانخواردن، هاتوچۆ و پشووی قاوە).</p></li><li><p data-path-to-node=\"12,3,0\"><b data-path-to-node=\"12,3,0\" data-index-in-node=\"0\">دەرکردنی ڕاپۆرت:</b> گۆڕینی داتا داراییەکان بۆ فایلەکانی PDF و Excel تەنها بە یەک کلیک بۆ مەبەستی کارگێڕی.</p></li><li><p data-path-to-node=\"12,4,0\"><b data-path-to-node=\"12,4,0\" data-index-in-node=\"0\">ئەرشیفکردنی داتا:</b> پاراستنی زانیاری ساڵانی ڕابردوو و گەڕانەوە بۆیان لە هەر کاتێکدا بێت بۆ بەراوردکردنی گەشەی دارایی.</p></li><li><p data-path-to-node=\"12,5,0\"><b data-path-to-node=\"12,5,0\" data-index-in-node=\"0\">بەڕێوەبردنی چالاکییە نوێیەکان:</b> فۆرمێکی زیرەک بۆ داخڵکردنی خول و چالاکییەکان کە تێیدا هەموو تێچووەکان بە شێوەیەکی خۆکارانە حیساب دەکرێن.</p></li></ul>",
+        "en": "<b data-path-to-node=\"7,0,0\" data-index-in-node=\"0\" style=\"font-size: 0.875rem;\">Key Features:</b><br><li><p data-path-to-node=\"7,0,0\"><b data-path-to-node=\"7,0,0\" data-index-in-node=\"0\">Dynamic Financial Dashboard:</b> Instantly track Total Activities, Total Income, Total Outcome, and Net Profit with high-level summary cards.</p></li><li><p data-path-to-node=\"7,1,0\"><b data-path-to-node=\"7,1,0\" data-index-in-node=\"0\">Advanced Analytics:</b> Visualize financial trends with interactive bar and doughnut charts, including yearly trends and monthly cash flow breakdowns.</p></li><li><p data-path-to-node=\"7,2,0\"><b data-path-to-node=\"7,2,0\" data-index-in-node=\"0\">Expense Categorization:</b> Detailed tracking of costs including Trainer fees, Coffee breaks, Transportation (Taxi), and Lunch expenses.</p></li><li><p data-path-to-node=\"7,3,0\"><b data-path-to-node=\"7,3,0\" data-index-in-node=\"0\">Report Generation:</b> One-click export to PDF and Excel for professional financial reporting.</p></li><li><p data-path-to-node=\"7,4,0\"><b data-path-to-node=\"7,4,0\" data-index-in-node=\"0\">Data Archiving:</b> Securely store and access financial records from previous years (e.g., 2025 Archive) to monitor long-term growth.</p></li><li><p data-path-to-node=\"7,5,0\"><b data-path-to-node=\"7,5,0\" data-index-in-node=\"0\">Smart Activity Management:</b> A streamlined \"New Activity\" portal to input courses, manage trainer rates, and calculate complex expenses automatically.</p></li>"
+      },
+      "images": [
+        "images/1778143496015-Screenshot20260507113802.png",
+        "images/1778143501814-Screenshot20260507113822.png",
+        "images/1778143507861-Screenshot20260507113837.png",
+        "images/1778143513593-Screenshot20260507113859.png",
+        "images/1778143518663-Screenshot20260507113907.png",
+        "images/1778143523643-Screenshot20260507113918.png",
+        "images/1778144205822-GeminiGeneratedImagel1owfhl1owfhl1ow.png"
+      ],
+      "videoLink": "",
+      "date": "2026-02-01",
+      "websiteLink": "",
+      "displayType": "image",
+      "bannerImage": "images/1778144205822-GeminiGeneratedImagel1owfhl1owfhl1ow.png",
+      "extraLinks": []
+    },
+    {
+      "title": {
         "ku": "سیستمی چێک ئین و چێک ئاوت و پۆرتاڵی بەڕێوبەر ",
         "en": "Check-in/Check-out System & Manager Portal"
       },
