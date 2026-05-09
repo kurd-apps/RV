@@ -1,40 +1,123 @@
 <!DOCTYPE html>
 <html lang="ku" dir="rtl" class="scroll-smooth">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RV Portfolio</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;600;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;600;800;900&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        body { font-family: 'Vazirmatn', sans-serif; background-color: #fafafa; color: #111; margin: 0; overflow-x: hidden; }
-        .project-card:hover img { transform: scale(1.05); }
-        .project-card img { transition: transform 0.5s ease; }
-        #modalContent p { line-height: 1.8; }
-        
+        body {
+            font-family: 'Vazirmatn', sans-serif;
+            background-color: #fafafa;
+            color: #111;
+            margin: 0;
+            overflow-x: hidden;
+        }
+
+        .project-card:hover img {
+            transform: scale(1.05);
+        }
+
+        .project-card img {
+            transition: transform 0.5s ease;
+        }
+
+        #modalContent p {
+            line-height: 1.8;
+        }
+
         /* لێرەدا کێشەی کانڤاسەکەمان چارەسەر کرد بە زیادکردنی universeCanvas بۆ ئەوەی بچێتە پشتەوە */
-        #particles-js, #universeCanvas { position: absolute; width: 100%; height: 100%; top: 0; left: 0; z-index: 0; pointer-events: none; }
-        .relative-z { position: relative; z-index: 10; }
-        
+        #particles-js,
+        #universeCanvas {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .relative-z {
+            position: relative;
+            z-index: 10;
+        }
+
         /* چاککردنی ئەنیمەیشنی تایپینگ بۆ ئەوەی جێگا بگرێت */
-        .typing-cursor::after { content: '|'; animation: blink 1s step-end infinite; }
-        @keyframes blink { 50% { opacity: 0; } }
-        
-        .business-slide { opacity: 0; transition: opacity 0.8s ease-in-out, transform 0.8s ease-in-out; transform: translateY(10px); position: absolute; inset: 0; visibility: hidden; }
-        .business-slide.active { opacity: 1; transform: translateY(0); z-index: 10; position: relative; visibility: visible; }
-                /* CSS بۆ شاردنەوەی سکڕۆڵی سلایدەری مۆدێلەکە */
-        .hide-scrollbar::-webkit-scrollbar { display: none; }
-        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
-        
+        .typing-cursor::after {
+            content: '|';
+            animation: blink 1s step-end infinite;
+        }
+
+        @keyframes blink {
+            50% {
+                opacity: 0;
+            }
+        }
+
+        .business-slide {
+            opacity: 0;
+            transition: opacity 0.8s ease-in-out, transform 0.8s ease-in-out;
+            transform: translateY(10px);
+            position: absolute;
+            inset: 0;
+            visibility: hidden;
+        }
+
+        .business-slide.active {
+            opacity: 1;
+            transform: translateY(0);
+            z-index: 10;
+            position: relative;
+            visibility: visible;
+        }
+
+        /* CSS بۆ شاردنەوەی سکڕۆڵی سلایدەری مۆدێلەکە */
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
         /* Modern Slider Styles */
-        .slider-slide { opacity: 0; transition: opacity 0.8s ease-in-out, transform 0.8s ease-in-out; position: absolute; inset: 0; transform: scale(1.05) translateZ(0); z-index: 0; visibility: hidden; }
-        .slider-slide.active { opacity: 1; transform: scale(1) translateZ(0); z-index: 10; visibility: visible; }
-        .glass-btn { background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.2); }
-        .glass-btn:hover { background: rgba(255, 255, 255, 0.25); border-color: rgba(255, 255, 255, 0.4); }
+        .slider-slide {
+            opacity: 0;
+            transition: opacity 0.8s ease-in-out, transform 0.8s ease-in-out;
+            position: absolute;
+            inset: 0;
+            transform: scale(1.05) translateZ(0);
+            z-index: 0;
+            visibility: hidden;
+        }
+
+        .slider-slide.active {
+            opacity: 1;
+            transform: scale(1) translateZ(0);
+            z-index: 10;
+            visibility: visible;
+        }
+
+        .glass-btn {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .glass-btn:hover {
+            background: rgba(255, 255, 255, 0.25);
+            border-color: rgba(255, 255, 255, 0.4);
+        }
     </style>
 </head>
+
 <body class="transition-all duration-300 antialiased relative">
 
     <!-- Header & Nav -->
@@ -42,10 +125,12 @@
         <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center relative z-50">
             <!-- Logo -->
             <!-- Logo -->
-            <div id="navLogoContainer" class="h-10 w-10 md:h-12 md:w-12 bg-white rounded-full flex items-center justify-center shadow-lg shrink-0">
-                <span id="logoTextFallback" class="font-black text-xl md:text-2xl tracking-tight uppercase text-[#020617]">RV.</span>
+            <div id="navLogoContainer"
+                class="h-10 w-10 md:h-12 md:w-12 bg-white rounded-full flex items-center justify-center shadow-lg shrink-0">
+                <span id="logoTextFallback"
+                    class="font-black text-xl md:text-2xl tracking-tight uppercase text-[#020617]">RV.</span>
             </div>
-            
+
             <!-- Desktop Menu -->
             <nav class="hidden md:flex gap-8 font-bold text-sm text-slate-300 items-center">
                 <a href="#home" class="hover:text-sky-400 transition" id="navHome">سەرەتا</a>
@@ -54,10 +139,11 @@
                 <a href="#projects" class="hover:text-sky-400 transition" id="navProj">کارەکانم</a>
                 <a href="#contact" class="hover:text-sky-400 transition" id="navCont">پەیوەندی</a>
             </nav>
-            
+
             <div class="flex items-center gap-4">
-                <button id="langToggle" class="text-slate-300 hover:text-white transition" title="گۆڕینی زمان"><i class="fa-solid fa-globe text-xl"></i></button>
-                
+                <button id="langToggle" class="text-slate-300 hover:text-white transition" title="گۆڕینی زمان"><i
+                        class="fa-solid fa-globe text-xl"></i></button>
+
                 <!-- Mobile Menu Hamburger Button -->
                 <button id="mobileMenuBtn" class="md:hidden text-slate-300 hover:text-white text-2xl ml-2">
                     <i class="fa-solid fa-bars"></i>
@@ -66,7 +152,8 @@
         </div>
 
         <!-- Mobile Menu Dropdown -->
-        <div id="mobileMenu" class="hidden md:hidden absolute top-full left-0 w-full bg-[#020617]/95 backdrop-blur-xl border-b border-white/10 py-6 px-6 flex-col gap-6 text-center font-bold text-lg text-slate-300 shadow-2xl z-40">
+        <div id="mobileMenu"
+            class="hidden md:hidden absolute top-full left-0 w-full bg-[#020617]/95 backdrop-blur-xl border-b border-white/10 py-6 px-6 flex-col gap-6 text-center font-bold text-lg text-slate-300 shadow-2xl z-40">
             <a href="#home" class="hover:text-sky-400 transition mobile-link" id="mobHome">سەرەتا</a>
             <a href="#about" class="hover:text-sky-400 transition mobile-link" id="mobAbout">دەربارە</a>
             <a href="#experience" class="hover:text-sky-400 transition mobile-link" id="mobExp">ئەزموون</a>
@@ -80,14 +167,26 @@
         <canvas id="universeCanvas"></canvas>
         <div class="max-w-7xl mx-auto flex flex-col-reverse md:flex-row items-center gap-12 relative-z w-full">
             <div class="flex-1 text-center md:text-start mt-6 md:mt-0">
-                <h1 id="heroName" class="text-4xl md:text-6xl lg:text-7xl font-black mb-4 text-white tracking-tight leading-tight min-h-[50px] md:min-h-[80px]">...</h1>
-                <h2 id="heroTitle" class="text-xl md:text-2xl font-bold text-sky-400 mb-6 bg-white/5 inline-block px-5 py-2 rounded-xl backdrop-blur-sm border border-white/10 shadow-lg">...</h2>
-                <p id="heroSub" class="text-lg md:text-xl text-gray-400 max-w-2xl mx-auto md:mx-0 bg-white/5 p-2 rounded backdrop-blur-sm hidden">...</p>
-                <div id="heroSocials" class="flex justify-center md:justify-start gap-5 mt-4 text-3xl text-slate-300"></div>
+                <h1 id="heroName"
+                    class="text-4xl md:text-6xl lg:text-7xl font-black mb-4 text-white tracking-tight leading-tight min-h-[50px] md:min-h-[80px]">
+                    ...</h1>
+                <h2 id="heroTitle"
+                    class="text-xl md:text-2xl font-bold text-sky-400 mb-6 bg-white/5 inline-block px-5 py-2 rounded-xl backdrop-blur-sm border border-white/10 shadow-lg">
+                    ...</h2>
+                <p id="heroSub"
+                    class="text-lg md:text-xl text-gray-400 max-w-2xl mx-auto md:mx-0 bg-white/5 p-2 rounded backdrop-blur-sm hidden">
+                    ...</p>
+                <div id="heroSocials" class="flex justify-center md:justify-start gap-5 mt-4 text-3xl text-slate-300">
+                </div>
             </div>
             <div class="w-64 h-64 md:w-[400px] md:h-[400px] shrink-0 relative mx-auto group">
-                <div class="absolute -inset-4 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full blur-xl opacity-30 group-hover:opacity-50 transition duration-1000"></div>
-               <img id="heroImage" src="" class="w-full h-full object-cover rounded-full shadow-2xl relative z-10 border-4 border-[#020617] bg-slate-900 pointer-events-none select-none" style="object-position: center;" draggable="false" oncontextmenu="return false;" onerror="this.src='https://via.placeholder.com/400x400?text=Profile+Image'">
+                <div
+                    class="absolute -inset-4 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full blur-xl opacity-30 group-hover:opacity-50 transition duration-1000">
+                </div>
+                <img id="heroImage" src=""
+                    class="w-full h-full object-cover rounded-full shadow-2xl relative z-10 border-4 border-[#020617] bg-slate-900 pointer-events-none select-none"
+                    style="object-position: center;" draggable="false" oncontextmenu="return false;"
+                    onerror="this.src='https://via.placeholder.com/400x400?text=Profile+Image'">
             </div>
         </div>
     </section>
@@ -96,12 +195,15 @@
     <section id="about" class="py-20 bg-white px-6">
         <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div>
-                <h3 id="aboutTitle" class="text-sm font-bold uppercase tracking-widest text-gray-400 mb-6 border-b pb-2">About Me</h3>
+                <h3 id="aboutTitle"
+                    class="text-sm font-bold uppercase tracking-widest text-gray-400 mb-6 border-b pb-2">About Me</h3>
                 <p id="aboutDesc" class="text-lg md:text-xl text-gray-700 leading-relaxed text-justify">...</p>
             </div>
-            
-            <div class="bg-indigo-50 p-8 md:p-10 rounded-[2rem] border border-indigo-100 shadow-sm relative overflow-hidden min-h-[350px] flex items-center">
-                <div class="absolute -right-10 -top-10 text-indigo-100 opacity-50"><i class="fa-solid fa-layer-group text-9xl"></i></div>
+
+            <div
+                class="bg-indigo-50 p-8 md:p-10 rounded-[2rem] border border-indigo-100 shadow-sm relative overflow-hidden min-h-[350px] flex items-center">
+                <div class="absolute -right-10 -top-10 text-indigo-100 opacity-50"><i
+                        class="fa-solid fa-layer-group text-9xl"></i></div>
                 <div id="businessSliderContainer" class="w-full relative z-10"></div>
             </div>
         </div>
@@ -111,64 +213,79 @@
     <section id="experience" class="py-24 px-6 bg-gray-50">
         <div class="max-w-4xl mx-auto flex flex-col gap-16">
             <div class="bg-white p-8 md:p-12 rounded-[2rem] shadow-sm border border-gray-100">
-                <h3 id="cvTitle" class="text-2xl font-black mb-10 border-b pb-4 text-indigo-600 text-center">Experience</h3>
+                <h3 id="cvTitle" class="text-2xl font-black mb-10 border-b pb-4 text-indigo-600 text-center">Experience
+                </h3>
                 <div id="cvList" class="space-y-10 border-r-2 border-indigo-100 pr-6 mr-2"></div>
             </div>
             <div class="bg-white p-8 md:p-12 rounded-[2rem] shadow-sm border border-gray-100">
-                <h3 id="skillsTitle" class="text-2xl font-black mb-10 border-b pb-4 text-indigo-600 text-center">Expertise</h3>
+                <h3 id="skillsTitle" class="text-2xl font-black mb-10 border-b pb-4 text-indigo-600 text-center">
+                    Expertise</h3>
                 <div id="skillsList" class="space-y-6 text-sm font-bold"></div>
             </div>
         </div>
     </section>
 
     <section id="projects" class="py-24 px-6 max-w-7xl mx-auto">
-        <h3 id="projectsTitle" class="text-3xl font-black mb-16 border-b pb-4 text-center text-gray-900">Selected Works</h3>
+        <h3 id="projectsTitle" class="text-3xl font-black mb-16 border-b pb-4 text-center text-gray-900">Selected Works
+        </h3>
         <div id="statsGrid" class="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16"></div>
         <div id="projectsGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"></div>
     </section>
 
     <section class="py-16 px-6 max-w-7xl mx-auto text-center border-t border-gray-200">
-        <h3 id="clientsTitle" class="text-sm font-bold uppercase tracking-widest text-gray-400 mb-12">Partners & Clients</h3>
-        <div id="clientsGrid" class="flex flex-wrap justify-center items-center gap-12 md:gap-20 opacity-70 hover:opacity-100 transition duration-500"></div>
+        <h3 id="clientsTitle" class="text-sm font-bold uppercase tracking-widest text-gray-400 mb-12">Partners & Clients
+        </h3>
+        <div id="clientsGrid"
+            class="flex flex-wrap justify-center items-center gap-12 md:gap-20 opacity-70 hover:opacity-100 transition duration-500">
+        </div>
     </section>
 
     <section id="contact" class="pt-24 pb-12 bg-gray-900 text-white px-6 rounded-t-[3rem]">
         <div class="max-w-6xl mx-auto">
-            <h2 id="contactTitle" class="text-4xl md:text-5xl font-black mb-16 text-center text-white">Let's Work Together</h2>
+            <h2 id="contactTitle" class="text-4xl md:text-5xl font-black mb-16 text-center text-white">Let's Work
+                Together</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-12 mb-16">
-                
+
                 <!-- Contact Info Boxes -->
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 text-lg font-bold" id="contactInfoContainer"></div>
 
                 <div class="bg-gray-800 p-8 rounded-3xl shadow-xl">
-                    <form action="https://api.web3forms.com/submit" method="POST" id="contactForm" class="space-y-6 text-right" dir="auto">
+                    <form action="https://api.web3forms.com/submit" method="POST" id="contactForm"
+                        class="space-y-6 text-right" dir="auto">
                         <input type="hidden" name="access_key" id="formAccessKey" value="">
                         <input type="hidden" name="subject" value="نامەی نوێ لە پۆرتفۆلیۆوە">
-                        <div><label class="block text-sm text-gray-400 mb-2" id="lblFormName">ناو</label><input type="text" name="name" required class="w-full bg-gray-900 border border-gray-700 rounded-xl p-4 text-white focus:outline-none focus:border-indigo-500"></div>
-                        <div><label class="block text-sm text-gray-400 mb-2" id="lblFormEmail">ئیمەیڵ</label><input type="email" name="email" required class="w-full bg-gray-900 border border-gray-700 rounded-xl p-4 text-white focus:outline-none focus:border-indigo-500" dir="ltr"></div>
-                        <div><label class="block text-sm text-gray-400 mb-2" id="lblFormMsg">نامەکەت</label><textarea name="message" required class="w-full bg-gray-900 border border-gray-700 rounded-xl p-4 text-white focus:outline-none focus:border-indigo-500 h-32"></textarea></div>
-                        <button type="submit" class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-4 rounded-xl transition" id="btnSubmitForm">ناردنی نامە</button>
+                        <div><label class="block text-sm text-gray-400 mb-2" id="lblFormName">ناو</label><input
+                                type="text" name="name" required
+                                class="w-full bg-gray-900 border border-gray-700 rounded-xl p-4 text-white focus:outline-none focus:border-indigo-500">
+                        </div>
+                        <div><label class="block text-sm text-gray-400 mb-2" id="lblFormEmail">ئیمەیڵ</label><input
+                                type="email" name="email" required
+                                class="w-full bg-gray-900 border border-gray-700 rounded-xl p-4 text-white focus:outline-none focus:border-indigo-500"
+                                dir="ltr"></div>
+                        <div><label class="block text-sm text-gray-400 mb-2" id="lblFormMsg">نامەکەت</label><textarea
+                                name="message" required
+                                class="w-full bg-gray-900 border border-gray-700 rounded-xl p-4 text-white focus:outline-none focus:border-indigo-500 h-32"></textarea>
+                        </div>
+                        <button type="submit"
+                            class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-4 rounded-xl transition"
+                            id="btnSubmitForm">ناردنی نامە</button>
                     </form>
                 </div>
             </div>
-            
+
             <div class="border-t border-gray-800 pt-8 text-center text-sm text-gray-500">
-                &copy; <span id="currentYear"></span> <span id="footerName"></span>. <span id="rightsText">All rights reserved.</span>
+                &copy; <span id="currentYear"></span> <span id="footerName"></span>. <span id="rightsText">All rights
+                    reserved.</span>
             </div>
         </div>
     </section>
 
     <!-- Scroll to Top Button -->
-    <button id="scrollToTopBtn" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="fixed bottom-6 right-6 md:bottom-10 md:right-10 z-40 bg-indigo-600 hover:bg-indigo-700 text-white w-12 h-12 rounded-full shadow-2xl flex items-center justify-center text-xl opacity-0 translate-y-10 transition-all duration-300 pointer-events-none">
+    <button id="scrollToTopBtn" onclick="window.scrollTo({top: 0, behavior: 'smooth'})"
+        class="fixed bottom-6 right-6 md:bottom-10 md:right-10 z-40 bg-indigo-600 hover:bg-indigo-700 text-white w-12 h-12 rounded-full shadow-2xl flex items-center justify-center text-xl opacity-0 translate-y-10 transition-all duration-300 pointer-events-none">
         <i class="fa-solid fa-arrow-up"></i>
     </button>
 
-    <!-- Project Modal -->
-    <!-- <div id="projectModal" class="fixed inset-0 z-50 bg-white overflow-y-auto hidden opacity-0 transition-opacity duration-300">
-        <button onclick="closeProject()" class="fixed top-6 right-6 z-50 bg-gray-900 text-white w-12 h-12 rounded-full font-bold text-xl hover:scale-110 transition shadow-lg flex items-center justify-center">✕</button>
-        <div class="max-w-5xl mx-auto py-20 px-6" id="modalContent"></div>
-    </div> -->
-    <!-- Project Detail Page View (Hidden by default) -->
     <section id="projectDetailView" class="hidden bg-[#fafafa] min-h-screen relative z-30"></section>
 
     <script>
@@ -177,19 +294,20 @@
         let siteData = null;
         let businessSlideIndex = 0;
         let businessSlideInterval;
-        let typingTimeout; // گۆڕاوی تایبەت بە لۆپی تایپینگەکە
-        let modernSliderInterval; // بۆ کۆنترۆڵکردنی سلایدەرە مۆدێرنەکە
+        let typingTimeout;
+        let modernSliderInterval;
         let modernSlideIndex = 0;
-        // Mobile Menu Logic
+
         const mobileMenuBtn = document.getElementById('mobileMenuBtn');
         const mobileMenu = document.getElementById('mobileMenu');
         mobileMenuBtn.addEventListener('click', () => {
             mobileMenu.classList.toggle('hidden');
             mobileMenu.classList.toggle('flex');
             const icon = mobileMenuBtn.querySelector('i');
-            if(mobileMenu.classList.contains('hidden')) { icon.className = 'fa-solid fa-bars'; } 
+            if (mobileMenu.classList.contains('hidden')) { icon.className = 'fa-solid fa-bars'; }
             else { icon.className = 'fa-solid fa-xmark'; }
         });
+
         document.querySelectorAll('.mobile-link').forEach(link => {
             link.addEventListener('click', () => {
                 mobileMenu.classList.add('hidden');
@@ -198,10 +316,9 @@
             });
         });
 
-        // Scroll to top logic
         window.addEventListener('scroll', () => {
             const btn = document.getElementById('scrollToTopBtn');
-            if(window.scrollY > 400) {
+            if (window.scrollY > 400) {
                 btn.classList.remove('opacity-0', 'translate-y-10', 'pointer-events-none');
                 btn.classList.add('opacity-100', 'translate-y-0');
             } else {
@@ -210,17 +327,16 @@
             }
         });
 
-        // Universe Canvas Logic
-        let canvas, ctx, w, h; const stars =[];
+        let canvas, ctx, w, h; const stars = [];
         function initUniverse() {
-            canvas = document.getElementById('universeCanvas'); if(!canvas) return;
-            ctx = canvas.getContext('2d'); w = canvas.width = window.innerWidth; h = canvas.height = canvas.parentElement.offsetHeight; 
+            canvas = document.getElementById('universeCanvas'); if (!canvas) return;
+            ctx = canvas.getContext('2d'); w = canvas.width = window.innerWidth; h = canvas.height = canvas.parentElement.offsetHeight;
             stars.length = 0;
             for (let i = 0; i < 300; i++) { stars.push({ x: Math.random() * w, y: Math.random() * h, size: Math.random() * 2, speed: Math.random() * 0.5 + 0.1, opacity: Math.random(), color: Math.random() > 0.8 ? '#a5f3fc' : '#ffffff' }); }
             drawUniverse();
         }
         function drawUniverse() {
-            if(!ctx) return;
+            if (!ctx) return;
             ctx.fillStyle = '#020617'; ctx.fillRect(0, 0, w, h);
             stars.forEach(star => {
                 ctx.beginPath(); ctx.arc(star.x, star.y, star.size, 0, Math.PI * 2); ctx.fillStyle = star.color; ctx.globalAlpha = star.opacity; ctx.fill();
@@ -236,32 +352,27 @@
 
         function getFullImageUrl(url) { if (!url) return ''; if (url.startsWith('http')) return url; return `https://raw.githubusercontent.com/kurd-apps/RV/main/${url}`; }
 
-        // لێرەدا فەنکشنی ناسینەوەی ڤیدیۆکانمان بەهێزتر کرد بۆ ناسینەوەی YouTube Shorts
         function getEmbedUrl(url) {
-            if(!url) return '';
+            if (!url) return '';
             let embed = url;
-            if(url.includes('youtu.be/')) {
+            if (url.includes('youtu.be/')) {
                 embed = 'https://www.youtube.com/embed/' + url.split('youtu.be/')[1].split('?')[0];
-            } else if(url.includes('youtube.com/watch?v=')) {
+            } else if (url.includes('youtube.com/watch?v=')) {
                 embed = 'https://www.youtube.com/embed/' + url.split('v=')[1].split('&')[0];
-            } else if(url.includes('youtube.com/shorts/')) {
-                // ئەم دێڕە کێشەی نەخوێندنەوەی ڤیدیۆی Shorts چارەسەر دەکات
+            } else if (url.includes('youtube.com/shorts/')) {
                 embed = 'https://www.youtube.com/embed/' + url.split('shorts/')[1].split('?')[0];
-            } else if(url.includes('facebook.com') && url.includes('/videos/')) {
+            } else if (url.includes('facebook.com') && url.includes('/videos/')) {
                 embed = 'https://www.facebook.com/plugins/video.php?href=' + encodeURIComponent(url) + '&show_text=0&width=auto';
-            } else if(url.includes('vimeo.com/')) {
+            } else if (url.includes('vimeo.com/')) {
                 embed = 'https://player.vimeo.com/video/' + url.split('vimeo.com/')[1];
             }
             return embed;
         }
 
-        // فەنکشنی تایپینگی لۆپ (نوسین و سڕینەوە بە بەردەوامی)
         function typeWriter(elementId, text, i = 0, isDeleting = false) {
             const el = document.getElementById(elementId);
             if (!el) return;
-
-            clearTimeout(typingTimeout); // وەستاندنی هەر نوسینێکی پێشوو
-
+            clearTimeout(typingTimeout);
             if (!isDeleting) {
                 el.innerText = text.substring(0, i + 1);
                 i++;
@@ -291,7 +402,7 @@
         function startBusinessSlider() {
             clearInterval(businessSlideInterval);
             const slides = document.querySelectorAll('.business-slide');
-            if(slides.length <= 1) return;
+            if (slides.length <= 1) return;
             businessSlideInterval = setInterval(() => {
                 slides.forEach(s => s.classList.remove('active'));
                 businessSlideIndex = (businessSlideIndex + 1) % slides.length;
@@ -304,23 +415,18 @@
             const isKu = currentLang === 'ku';
             document.documentElement.lang = isKu ? 'ku' : 'en';
             document.documentElement.dir = isKu ? 'rtl' : 'ltr';
-            
-            // Translations for Nav Desktop and Mobile
+
             document.getElementById('navHome').innerText = isKu ? 'سەرەتا' : 'Home';
             document.getElementById('mobHome').innerText = isKu ? 'سەرەتا' : 'Home';
-            
             document.getElementById('navAbout').innerText = isKu ? 'دەربارە' : 'About';
             document.getElementById('mobAbout').innerText = isKu ? 'دەربارە' : 'About';
-            
             document.getElementById('navExp').innerText = isKu ? 'ئەزموون و شارەزایی' : 'Experience & Skills';
             document.getElementById('mobExp').innerText = isKu ? 'ئەزموون و شارەزایی' : 'Experience & Skills';
-            
             document.getElementById('navProj').innerText = isKu ? 'کارەکانم' : 'Works';
             document.getElementById('mobProj').innerText = isKu ? 'کارەکانم' : 'Works';
-            
             document.getElementById('navCont').innerText = isKu ? 'پەیوەندی' : 'Contact';
             document.getElementById('mobCont').innerText = isKu ? 'پەیوەندی' : 'Contact';
-            
+
             document.getElementById('lblFormName').innerText = isKu ? 'ناوت' : 'Your Name';
             document.getElementById('lblFormEmail').innerText = isKu ? 'ئیمەیڵەکەت' : 'Your Email';
             document.getElementById('lblFormMsg').innerText = isKu ? 'نامەکەت' : 'Your Message';
@@ -328,32 +434,25 @@
             document.getElementById('cvList').className = isKu ? 'space-y-10 border-r-2 border-indigo-100 pr-6 mr-2' : 'space-y-10 border-l-2 border-indigo-100 pl-6 ml-2';
 
             const sec = siteData.sections;
-            
-            // پاراستن لە Crash ئەگەر داتا نەبوو
-            const heroData = sec.hero || {}; 
+            const heroData = sec.hero || {};
 
-            // Logo in Nav
             const navLogoDiv = document.getElementById('navLogoContainer');
-            if(heroData.navLogo) {
+            if (heroData.navLogo) {
                 navLogoDiv.innerHTML = `<img src="${getFullImageUrl(heroData.navLogo)}" class="h-full w-full object-cover rounded-full">`;
             } else {
                 const fallbackName = (heroData.name && heroData.name[currentLang]) ? heroData.name[currentLang] : 'RV.';
                 navLogoDiv.innerHTML = `<span class="font-black text-xl md:text-2xl tracking-tight uppercase text-[#020617]">${fallbackName}</span>`;
             }
 
-            // Hero Section text logic لەگەڵ لۆپی نوسین و سڕینەوە
             const heroNameText = heroData.name ? heroData.name[currentLang] : '';
             const welcomeText = isKu ? `بەخێربێن، من ${heroNameText}م` : `Welcome, I am ${heroNameText}`;
-            
-            document.getElementById('heroName').innerText = ''; 
+            document.getElementById('heroName').innerText = '';
             document.getElementById('heroName').classList.add('typing-cursor');
             typeWriter('heroName', welcomeText);
-
             document.getElementById('heroTitle').innerText = heroData.title ? heroData.title[currentLang] : '';
-            
+
             const heroImg = document.getElementById('heroImage');
-            if(heroImg && heroData.image) {
-                // Fetching image and converting to Base64 to hide the real URL (Encryption trick)
+            if (heroImg && heroData.image) {
                 fetch(getFullImageUrl(heroData.image))
                     .then(res => res.blob())
                     .then(blob => {
@@ -362,113 +461,61 @@
                         reader.readAsDataURL(blob);
                     })
                     .catch(() => { heroImg.src = getFullImageUrl(heroData.image); });
-                
-                if(heroData.imagePos && heroData.imagePos.x) {
-                    heroImg.style.objectPosition = `${heroData.imagePos.x}% ${heroData.imagePos.y}%`;
-                }
+                if (heroData.imagePos && heroData.imagePos.x) heroImg.style.objectPosition = `${heroData.imagePos.x}% ${heroData.imagePos.y}%`;
             }
 
             document.getElementById('aboutTitle').innerText = sec.about.heading[currentLang];
             document.getElementById('aboutDesc').innerText = sec.about.desc[currentLang];
-            
-            // Business Slider Rendering
+
             const bContainer = document.getElementById('businessSliderContainer');
-            if(sec.businesses && sec.businesses.length > 0) {
+            if (sec.businesses && sec.businesses.length > 0) {
                 bContainer.innerHTML = sec.businesses.map((b, i) => {
                     let bSocials = '';
-                    if(b.socials) {
-                        if(b.socials.website) bSocials += `<a href="${b.socials.website}" target="_blank" class="text-indigo-400 hover:text-indigo-600 transition"><i class="fa-solid fa-link"></i></a>`;
-                        if(b.socials.facebook) bSocials += `<a href="${b.socials.facebook}" target="_blank" class="text-indigo-400 hover:text-indigo-600 transition"><i class="fa-brands fa-facebook"></i></a>`;
-                        if(b.socials.instagram) bSocials += `<a href="${b.socials.instagram}" target="_blank" class="text-indigo-400 hover:text-indigo-600 transition"><i class="fa-brands fa-instagram"></i></a>`;
-                        if(b.socials.youtube) bSocials += `<a href="${b.socials.youtube}" target="_blank" class="text-red-400 hover:text-red-600 transition"><i class="fa-brands fa-youtube"></i></a>`;
+                    if (b.socials) {
+                        if (b.socials.website) bSocials += `<a href="${b.socials.website}" target="_blank" class="text-indigo-400 hover:text-indigo-600 transition"><i class="fa-solid fa-link"></i></a>`;
+                        if (b.socials.facebook) bSocials += `<a href="${b.socials.facebook}" target="_blank" class="text-indigo-400 hover:text-indigo-600 transition"><i class="fa-brands fa-facebook"></i></a>`;
+                        if (b.socials.instagram) bSocials += `<a href="${b.socials.instagram}" target="_blank" class="text-indigo-400 hover:text-indigo-600 transition"><i class="fa-brands fa-instagram"></i></a>`;
+                        if (b.socials.youtube) bSocials += `<a href="${b.socials.youtube}" target="_blank" class="text-red-400 hover:text-red-600 transition"><i class="fa-brands fa-youtube"></i></a>`;
                     }
                     const logoHtml = b.logo ? `<img src="${getFullImageUrl(b.logo)}" class="w-full h-full object-cover">` : `<i class="fa-solid fa-rocket text-indigo-600 text-xl"></i>`;
-                    return `
-                        <div class="business-slide ${i === 0 ? 'active' : ''} w-full">
-                            <div class="flex justify-between items-center mb-6 border-b border-indigo-200/50 pb-4">
-                                <div class="flex items-center gap-4">
-                                    <div class="w-14 h-14 rounded-xl bg-white shadow-md flex items-center justify-center overflow-hidden shrink-0 border border-gray-100">${logoHtml}</div>
-                                    <h3 class="text-2xl font-black text-indigo-900">${b.heading[currentLang]}</h3>
-                                </div>
-                                <div class="flex gap-4 text-2xl">${bSocials}</div>
-                            </div>
-                            <p class="text-gray-800 text-lg leading-relaxed text-justify">${b.desc[currentLang]}</p>
-                        </div>
-                    `;
+                    return `<div class="business-slide ${i === 0 ? 'active' : ''} w-full"><div class="flex justify-between items-center mb-6 border-b border-indigo-200/50 pb-4"><div class="flex items-center gap-4"><div class="w-14 h-14 rounded-xl bg-white shadow-md flex items-center justify-center overflow-hidden shrink-0 border border-gray-100">${logoHtml}</div><h3 class="text-2xl font-black text-indigo-900">${b.heading[currentLang]}</h3></div><div class="flex gap-4 text-2xl">${bSocials}</div></div><p class="text-gray-800 text-lg leading-relaxed text-justify">${b.desc[currentLang]}</p></div>`;
                 }).join('');
                 startBusinessSlider();
             } else {
                 bContainer.innerHTML = ``;
             }
 
-           document.getElementById('cvTitle').innerText = sec.cv.heading[currentLang];
+            document.getElementById('cvTitle').innerText = sec.cv.heading[currentLang];
             document.getElementById('cvList').innerHTML = [...sec.cv.items].sort((a, b) => {
                 const getLatestYear = (str) => {
                     const s = String(str).toLowerCase();
-                    // ئەگەر وشەی 'ئێستا' یان 'Present' تێدابوو با بچێتە سەرەوە
-                    if(s.includes('present') || s.includes('ئێستا') || s.includes('now') || s.includes('بەردەوامە')) return 999999;
-                    // دەرهێنانی دوایین ساڵ لەناو دەقەکە (وەک 30/5/2020 - 1/11/2025)
+                    if (s.includes('present') || s.includes('ئێستا') || s.includes('now') || s.includes('بەردەوامە')) return 999999;
                     const yearMatches = s.match(/\b(19|20)\d{2}\b/g);
                     return yearMatches ? Math.max(...yearMatches.map(Number)) : 0;
                 };
                 return getLatestYear(b.year) - getLatestYear(a.year);
-            }).map(item => `
-                <div class="relative"><div class="absolute top-1.5 w-4 h-4 bg-indigo-600 rounded-full border-4 border-white ${isKu ? '-right-8' : '-left-8'}"></div><h4 class="text-xl font-black text-gray-900">${item.role[currentLang]}</h4><p class="text-indigo-600 font-bold text-sm mb-2">${item.place[currentLang]} <span class="text-gray-400 mx-2">•</span> <span dir="ltr">${item.year}</span></p><p class="text-gray-600">${item.desc[currentLang]}</p></div>
-            `).join('');
+            }).map(item => `<div class="relative"><div class="absolute top-1.5 w-4 h-4 bg-indigo-600 rounded-full border-4 border-white ${isKu ? '-right-8' : '-left-8'}"></div><h4 class="text-xl font-black text-gray-900">${item.role[currentLang]}</h4><p class="text-indigo-600 font-bold text-sm mb-2">${item.place[currentLang]} <span class="text-gray-400 mx-2">•</span> <span dir="ltr">${item.year}</span></p><p class="text-gray-600">${item.desc[currentLang]}</p></div>`).join('');
 
             document.getElementById('skillsTitle').innerText = sec.skills.heading[currentLang];
-            document.getElementById('skillsList').innerHTML = sec.skills.list.map(skill => `
-                <div class="flex items-center gap-4"><div class="w-16 text-right">${skill.percent}%</div><div class="flex-1 bg-gray-100 rounded-full h-2 overflow-hidden"><div class="bg-indigo-600 h-full" style="width: ${skill.percent}%"></div></div><div class="flex-1">${skill.name[currentLang]}</div></div>
-            `).join('');
+            document.getElementById('skillsList').innerHTML = sec.skills.list.map(skill => `<div class="flex items-center gap-4"><div class="w-16 text-right">${skill.percent}%</div><div class="flex-1 bg-gray-100 rounded-full h-2 overflow-hidden"><div class="bg-indigo-600 h-full" style="width: ${skill.percent}%"></div></div><div class="flex-1">${skill.name[currentLang]}</div></div>`).join('');
 
             document.getElementById('clientsTitle').innerText = sec.clients.heading[currentLang];
-            if(sec.clients.logos) {
-                document.getElementById('clientsGrid').innerHTML = sec.clients.logos.map(img => `<img src="${getFullImageUrl(img)}" class="h-16 md:h-20 grayscale hover:grayscale-0 transition object-contain">`).join('');
-            }
+            if (sec.clients.logos) document.getElementById('clientsGrid').innerHTML = sec.clients.logos.map(img => `<img src="${getFullImageUrl(img)}" class="h-16 md:h-20 grayscale hover:grayscale-0 transition object-contain">`).join('');
 
             document.getElementById('contactTitle').innerText = sec.contact.heading[currentLang];
             document.getElementById('formAccessKey').value = sec.contact.formKey || '';
-            if(!sec.contact.formKey) document.getElementById('contactForm').style.display = 'none';
+            if (!sec.contact.formKey) document.getElementById('contactForm').style.display = 'none';
 
-            let socialBoxesHTML = '';
-            let hSocials = '';
-            if(sec.contact.socials) {
+            let socialBoxesHTML = '', hSocials = '';
+            if (sec.contact.socials) {
                 const s = sec.contact.socials;
-                if(s.facebook) socialBoxesHTML += `<a href="${s.facebook}" target="_blank" class="bg-gray-800 border border-gray-700 hover:bg-[#1877F2] text-gray-400 hover:text-white flex items-center justify-center rounded-2xl transition duration-300 text-3xl h-24 w-full"><i class="fa-brands fa-facebook-f"></i></a>`;
-                if(s.instagram) socialBoxesHTML += `<a href="${s.instagram}" target="_blank" class="bg-gray-800 border border-gray-700 hover:bg-gradient-to-tr hover:from-[#f9ce34] hover:to-[#ee2a7b] text-gray-400 hover:text-white flex items-center justify-center rounded-2xl transition duration-300 text-3xl h-24 w-full"><i class="fa-brands fa-instagram"></i></a>`;
-                if(s.youtube) socialBoxesHTML += `<a href="${s.youtube}" target="_blank" class="bg-gray-800 border border-gray-700 hover:bg-[#FF0000] text-gray-400 hover:text-white flex items-center justify-center rounded-2xl transition duration-300 text-3xl h-24 w-full"><i class="fa-brands fa-youtube"></i></a>`;
-                if(s.behance) socialBoxesHTML += `<a href="${s.behance}" target="_blank" class="bg-gray-800 border border-gray-700 hover:bg-[#1769ff] text-gray-400 hover:text-white flex items-center justify-center rounded-2xl transition duration-300 text-3xl h-24 w-full"><i class="fa-brands fa-behance"></i></a>`;
-                
-                if(s.facebook) hSocials += `<a href="${s.facebook}" target="_blank" class="hover:text-sky-400 transition hover:scale-110 transform inline-block"><i class="fa-brands fa-facebook"></i></a>`;
-                if(s.instagram) hSocials += `<a href="${s.instagram}" target="_blank" class="hover:text-pink-400 transition hover:scale-110 transform inline-block"><i class="fa-brands fa-instagram"></i></a>`;
-                if(s.youtube) hSocials += `<a href="${s.youtube}" target="_blank" class="hover:text-red-500 transition hover:scale-110 transform inline-block"><i class="fa-brands fa-youtube"></i></a>`;
-                if(s.behance) hSocials += `<a href="${s.behance}" target="_blank" class="hover:text-blue-400 transition hover:scale-110 transform inline-block"><i class="fa-brands fa-behance"></i></a>`;
+                if (s.facebook) { socialBoxesHTML += `<a href="${s.facebook}" target="_blank" class="bg-gray-800 border border-gray-700 hover:bg-[#1877F2] text-gray-400 hover:text-white flex items-center justify-center rounded-2xl transition duration-300 text-3xl h-24 w-full"><i class="fa-brands fa-facebook-f"></i></a>`; hSocials += `<a href="${s.facebook}" target="_blank" class="hover:text-sky-400 transition hover:scale-110 transform inline-block"><i class="fa-brands fa-facebook"></i></a>`; }
+                if (s.instagram) { socialBoxesHTML += `<a href="${s.instagram}" target="_blank" class="bg-gray-800 border border-gray-700 hover:bg-gradient-to-tr hover:from-[#f9ce34] hover:to-[#ee2a7b] text-gray-400 hover:text-white flex items-center justify-center rounded-2xl transition duration-300 text-3xl h-24 w-full"><i class="fa-brands fa-instagram"></i></a>`; hSocials += `<a href="${s.instagram}" target="_blank" class="hover:text-pink-400 transition hover:scale-110 transform inline-block"><i class="fa-brands fa-instagram"></i></a>`; }
+                if (s.youtube) { socialBoxesHTML += `<a href="${s.youtube}" target="_blank" class="bg-gray-800 border border-gray-700 hover:bg-[#FF0000] text-gray-400 hover:text-white flex items-center justify-center rounded-2xl transition duration-300 text-3xl h-24 w-full"><i class="fa-brands fa-youtube"></i></a>`; hSocials += `<a href="${s.youtube}" target="_blank" class="hover:text-red-500 transition hover:scale-110 transform inline-block"><i class="fa-brands fa-youtube"></i></a>`; }
+                if (s.behance) { socialBoxesHTML += `<a href="${s.behance}" target="_blank" class="bg-gray-800 border border-gray-700 hover:bg-[#1769ff] text-gray-400 hover:text-white flex items-center justify-center rounded-2xl transition duration-300 text-3xl h-24 w-full"><i class="fa-brands fa-behance"></i></a>`; hSocials += `<a href="${s.behance}" target="_blank" class="hover:text-blue-400 transition hover:scale-110 transform inline-block"><i class="fa-brands fa-behance"></i></a>`; }
             }
             document.getElementById('heroSocials').innerHTML = hSocials;
-
-            document.getElementById('contactInfoContainer').innerHTML = `
-                <div class="bg-gray-800 p-6 rounded-3xl flex flex-col justify-center relative overflow-hidden group border border-gray-700">
-                    <i class="fa-solid fa-envelope absolute ${isKu ? '-left-4' : '-right-4'} -bottom-4 text-7xl text-white/5 group-hover:text-white/10 transition duration-300"></i>
-                    <span class="block text-gray-400 text-xs mb-2 uppercase tracking-widest relative z-10">Email</span>
-                    <span class="text-sm break-all relative z-10">${sec.contact.email}</span>
-                </div>
-                <div class="bg-gray-800 p-6 rounded-3xl flex flex-col justify-center relative overflow-hidden group border border-gray-700">
-                    <i class="fa-solid fa-phone absolute ${isKu ? '-left-4' : '-right-4'} -bottom-4 text-7xl text-white/5 group-hover:text-white/10 transition duration-300 transform -rotate-12"></i>
-                    <span class="block text-gray-400 text-xs mb-2 uppercase tracking-widest relative z-10">Phone</span>
-                    <span dir="ltr" class="text-sm relative z-10">${sec.contact.phone}</span>
-                </div>
-                <div class="bg-gray-800 p-6 rounded-3xl flex flex-col justify-center relative overflow-hidden group border border-gray-700">
-                    <i class="fa-solid fa-location-dot absolute ${isKu ? '-left-4' : '-right-4'} -bottom-4 text-7xl text-white/5 group-hover:text-white/10 transition duration-300"></i>
-                    <span class="block text-gray-400 text-xs mb-2 uppercase tracking-widest relative z-10">Location</span>
-                    <span class="text-sm relative z-10">${sec.contact.address[currentLang]}</span>
-                </div>
-                <div class="w-full h-full flex flex-col justify-center">
-                    <span class="block text-gray-400 text-xs mb-3 uppercase tracking-widest ml-2">${isKu ? 'سۆشیاڵەکانم' : 'Follow Me'}</span>
-                    <div class="grid grid-cols-2 gap-3 w-full h-full">
-                        ${socialBoxesHTML}
-                    </div>
-                </div>
-            `;
+            document.getElementById('contactInfoContainer').innerHTML = `<div class="bg-gray-800 p-6 rounded-3xl flex flex-col justify-center relative overflow-hidden group border border-gray-700"><i class="fa-solid fa-envelope absolute ${isKu ? '-left-4' : '-right-4'} -bottom-4 text-7xl text-white/5 group-hover:text-white/10 transition duration-300"></i><span class="block text-gray-400 text-xs mb-2 uppercase tracking-widest relative z-10">Email</span><span class="text-sm break-all relative z-10">${sec.contact.email}</span></div><div class="bg-gray-800 p-6 rounded-3xl flex flex-col justify-center relative overflow-hidden group border border-gray-700"><i class="fa-solid fa-phone absolute ${isKu ? '-left-4' : '-right-4'} -bottom-4 text-7xl text-white/5 group-hover:text-white/10 transition duration-300 transform -rotate-12"></i><span class="block text-gray-400 text-xs mb-2 uppercase tracking-widest relative z-10">Phone</span><span dir="ltr" class="text-sm relative z-10">${sec.contact.phone}</span></div><div class="bg-gray-800 p-6 rounded-3xl flex flex-col justify-center relative overflow-hidden group border border-gray-700"><i class="fa-solid fa-location-dot absolute ${isKu ? '-left-4' : '-right-4'} -bottom-4 text-7xl text-white/5 group-hover:text-white/10 transition duration-300"></i><span class="block text-gray-400 text-xs mb-2 uppercase tracking-widest relative z-10">Location</span><span class="text-sm relative z-10">${sec.contact.address[currentLang]}</span></div><div class="w-full h-full flex flex-col justify-center"><span class="block text-gray-400 text-xs mb-3 uppercase tracking-widest ml-2">${isKu ? 'سۆشیاڵەکانم' : 'Follow Me'}</span><div class="grid grid-cols-2 gap-3 w-full h-full">${socialBoxesHTML}</div></div>`;
 
             document.getElementById('currentYear').innerText = new Date().getFullYear();
             const footName = (heroData.name && heroData.name[currentLang]) ? heroData.name[currentLang] : 'RV';
@@ -476,65 +523,31 @@
             document.getElementById('rightsText').innerText = isKu ? 'هەموو مافێک پارێزراوە.' : 'All rights reserved.';
 
             document.getElementById('projectsTitle').innerText = isKu ? 'هەڵبژاردەی کارەکانم' : 'Selected Works';
-            document.getElementById('projectsGrid').innerHTML = siteData.projects.map((p, index) => `
-                <div onclick="openProject(${index})" class="project-card group cursor-pointer bg-white rounded-3xl shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 overflow-hidden flex flex-col h-full">
-                    <div class="w-full h-64 overflow-hidden bg-gray-100 relative">
-                        <img src="${getFullImageUrl(p.bannerImage || (p.images && p.images[0] ? p.images[0] : ''))}" class="w-full h-full object-cover">
-                        ${p.date ? `<div class="absolute bottom-4 ${isKu ? 'left-4' : 'right-4'} bg-white/90 backdrop-blur px-3 py-1 rounded-full text-xs font-bold shadow-sm text-gray-800">${p.date}</div>` : ''}
-                    </div>
-                    <div class="p-6 flex-grow flex flex-col"><p class="text-indigo-600 text-xs font-bold mb-2 uppercase tracking-wide">${p.category}</p><h3 class="text-xl font-bold mb-3 text-gray-900">${p.title[currentLang]}</h3><p class="text-gray-500 text-sm flex-grow">${p.shortDesc[currentLang]}</p></div>
-                </div>
-            `).join('');
+            document.getElementById('projectsGrid').innerHTML = siteData.projects.map((p, index) => {
+                const priceHtml = p.price ? `<div class="absolute top-4 ${isKu ? 'left-4' : 'right-4'} bg-green-500 text-white px-3 py-1 rounded-full text-xs font-black shadow-lg z-20"><i class="fa-solid fa-tag ml-1"></i> ${p.price}</div>` : '';
+                const dateHtml = p.date ? `<div class="absolute bottom-4 ${isKu ? 'left-4' : 'right-4'} bg-white/90 backdrop-blur px-3 py-1 rounded-full text-xs font-bold shadow-sm text-gray-800">${p.date}</div>` : '';
+                return `<div onclick="openProject(${index})" class="project-card group cursor-pointer bg-white rounded-3xl shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 overflow-hidden flex flex-col h-full relative">${priceHtml}<div class="w-full h-64 overflow-hidden bg-gray-100 relative"><img src="${getFullImageUrl(p.bannerImage || (p.images && p.images[0] ? p.images[0] : ''))}" class="w-full h-full object-cover">${dateHtml}</div><div class="p-6 flex-grow flex flex-col"><p class="text-indigo-600 text-xs font-bold mb-2 uppercase tracking-wide">${p.category}</p><h3 class="text-xl font-bold mb-3 text-gray-900">${p.title[currentLang]}</h3><p class="text-gray-500 text-sm flex-grow">${p.shortDesc[currentLang]}</p></div></div>`;
+            }).join('');
         }
 
         function animateStats() {
             const counts = {};
-            if(siteData.projects) { siteData.projects.forEach(p => { counts[p.category] = (counts[p.category] || 0) + 1; }); }
+            if (siteData.projects) { siteData.projects.forEach(p => { counts[p.category] = (counts[p.category] || 0) + 1; }); }
             const grid = document.getElementById('statsGrid');
-            grid.innerHTML = Object.keys(counts).map(cat => `
-                <div class="bg-white p-6 rounded-3xl border border-gray-100 shadow-sm text-center">
-                    <div class="text-4xl font-black text-indigo-600 mb-2 stat-counter" data-target="${counts[cat]}">0</div>
-                    <div class="text-sm font-bold text-gray-500 uppercase">${cat}</div>
-                </div>
-            `).join('');
-
-            document.querySelectorAll('.stat-counter').forEach(el => {
-                const target = +el.getAttribute('data-target'); const inc = target / 50; let current = 0;
-                const update = setInterval(() => { current += inc; if(current >= target) { el.innerText = target; clearInterval(update); } else { el.innerText = Math.ceil(current); } }, 30);
-            });
+            grid.innerHTML = Object.keys(counts).map(cat => `<div class="bg-white p-6 rounded-3xl border border-gray-100 shadow-sm text-center"><div class="text-4xl font-black text-indigo-600 mb-2 stat-counter" data-target="${counts[cat]}">0</div><div class="text-sm font-bold text-gray-500 uppercase">${cat}</div></div>`).join('');
+            document.querySelectorAll('.stat-counter').forEach(el => { const target = +el.getAttribute('data-target'); const inc = target / 50; let current = 0; const update = setInterval(() => { current += inc; if (current >= target) { el.innerText = target; clearInterval(update); } else { el.innerText = Math.ceil(current); } }, 30); });
         }
 
-        let currentSlideIndex = 0;
-
         function openProject(index) {
-            const p = siteData.projects[index]; 
-            const isKu = currentLang === 'ku'; 
+            const p = siteData.projects[index];
+            const isKu = currentLang === 'ku';
             const detailView = document.getElementById('projectDetailView');
-            
             document.querySelectorAll('body > section:not(#projectDetailView)').forEach(s => s.classList.add('hidden'));
             detailView.classList.remove('hidden');
-            window.scrollTo({top: 0, behavior: 'instant'});
+            window.scrollTo({ top: 0, behavior: 'instant' });
             clearInterval(modernSliderInterval);
 
-            // Top Content
-            let html = `
-            <div class="max-w-6xl mx-auto pt-32 pb-20 px-6">
-                <button onclick="closeProjectView()" class="mb-10 text-gray-500 hover:text-indigo-600 font-bold flex items-center gap-2 transition text-lg bg-white px-5 py-2 rounded-full shadow-sm border border-gray-100 hover:shadow-md">
-                    <i class="fa-solid ${isKu ? 'fa-arrow-right' : 'fa-arrow-left'}"></i> ${isKu ? 'گەڕانەوە' : 'Back'}
-                </button>
-                
-                <div class="flex flex-wrap justify-between items-center mb-6 gap-4">
-                    <h4 class="text-indigo-600 font-bold uppercase tracking-wider">${p.category}</h4>
-                    <div class="flex flex-wrap items-center gap-3">
-                        ${p.date ? `<span class="bg-gray-100 text-gray-600 px-4 py-1.5 rounded-full text-sm font-bold shadow-sm"><i class="fa-regular fa-calendar ml-1"></i> ${p.date}</span>` : ''}
-                        ${p.price ? `<span class="bg-green-50 border border-green-200 text-green-700 px-4 py-1.5 rounded-full text-sm font-black shadow-sm"><i class="fa-solid fa-tag ml-1"></i> ${p.price}</span>` : ''}
-                    </div>
-                </div>
-                
-                <h2 class="text-4xl md:text-5xl lg:text-6xl font-black mb-12 text-gray-900 leading-tight">${p.title[currentLang]}</h2>
-            `;
-
-            // Top Banner
+            let html = `<div class="max-w-6xl mx-auto pt-32 pb-20 px-6"><button onclick="closeProjectView()" class="mb-10 text-gray-500 hover:text-indigo-600 font-bold flex items-center gap-2 transition text-lg bg-white px-5 py-2 rounded-full shadow-sm border border-gray-100 hover:shadow-md"><i class="fa-solid ${isKu ? 'fa-arrow-right' : 'fa-arrow-left'}"></i> ${isKu ? 'گەڕانەوە' : 'Back'}</button><div class="flex flex-wrap justify-between items-center mb-6 gap-4"><h4 class="text-indigo-600 font-bold uppercase tracking-wider">${p.category}</h4><div class="flex flex-wrap items-center gap-3">${p.date ? `<span class="bg-gray-100 text-gray-600 px-4 py-1.5 rounded-full text-sm font-bold shadow-sm"><i class="fa-regular fa-calendar ml-1"></i> ${p.date}</span>` : ''}${p.price ? `<span class="bg-green-50 border border-green-200 text-green-700 px-4 py-1.5 rounded-full text-sm font-black shadow-sm"><i class="fa-solid fa-tag ml-1"></i> ${p.price}</span>` : ''}</div></div><h2 class="text-4xl md:text-5xl lg:text-6xl font-black mb-12 text-gray-900 leading-tight">${p.title[currentLang]}</h2>`;
             const bannerImg = p.bannerImage || (p.images && p.images.length > 0 ? p.images[0] : null);
             const dispType = p.displayType || 'image';
 
@@ -544,159 +557,62 @@
                 html += `<div class="w-full h-[50vh] md:h-[70vh] rounded-[30px] overflow-hidden shadow-2xl mb-12 bg-gray-100"><img src="${getFullImageUrl(bannerImg)}" class="w-full h-full object-cover"></div>`;
             }
 
-            // Description
             html += `<div class="text-lg md:text-xl text-gray-700 leading-relaxed mb-16 text-justify prose max-w-none [&_a]:text-indigo-600 [&_a]:underline [&_a]:font-bold">${p.fullDesc[currentLang]}</div>`;
 
-            // Setup Media for Modern Slider
             let mediaItems = [];
             let allImages = [];
             if (p.bannerImage) allImages.push(p.bannerImage);
-            if (p.images) p.images.forEach(img => { if(!allImages.includes(img)) allImages.push(img); });
-            
+            if (p.images) p.images.forEach(img => { if (!allImages.includes(img)) allImages.push(img); });
             if (p.videoLink) mediaItems.push({ type: 'video', url: getEmbedUrl(p.videoLink), thumb: allImages.length > 0 ? getFullImageUrl(allImages[0]) : '' });
             allImages.forEach(img => mediaItems.push({ type: 'image', url: getFullImageUrl(img), thumb: getFullImageUrl(img) }));
 
-            // Render Modern Slider
             if (mediaItems.length > 0) {
                 const initialBg = mediaItems[0].thumb || '';
-                html += `
-                <div class="mb-20">
-                    <h3 class="text-3xl font-black mb-10 text-gray-900 border-b pb-4">${isKu ? 'پێشانگای پڕۆژە' : 'Project Gallery'}</h3>
-                    
-                    <!-- Main Slider Viewport -->
-                    <div class="relative w-full rounded-[30px] overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.3)] bg-[#050505] group border border-gray-800/20 aspect-video md:h-[70vh]">
-                        
-                        <!-- Ambient Blur Background -->
-                        <div id="ambientBg" class="absolute inset-0 bg-cover bg-center opacity-40 blur-[60px] scale-125 transition-all duration-1000 z-0" style="background-image: url('${initialBg}')"></div>
-                        <div class="absolute inset-0 bg-black/30 z-0 pointer-events-none"></div>
-
-                        <!-- Slides Container -->
-                        <div class="absolute inset-0 z-10" id="modernSliderContainer">`;
-                
+                html += `<div class="mb-20"><h3 class="text-3xl font-black mb-10 text-gray-900 border-b pb-4">${isKu ? 'پێشانگای پڕۆژە' : 'Project Gallery'}</h3><div class="relative w-full rounded-[30px] overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.3)] bg-[#050505] group border border-gray-800/20 aspect-video md:h-[70vh]"><div id="ambientBg" class="absolute inset-0 bg-cover bg-center opacity-40 blur-[60px] scale-125 transition-all duration-1000 z-0" style="background-image: url('${initialBg}')"></div><div class="absolute inset-0 bg-black/30 z-0 pointer-events-none"></div><div class="absolute inset-0 z-10" id="modernSliderContainer">`;
                 mediaItems.forEach((item, idx) => {
-                    html += `
-                    <div class="slider-slide w-full h-full flex items-center justify-center ${idx === 0 ? 'active' : ''}" data-bg="${item.thumb}">
-                        ${item.type === 'video' 
-                            ? `<iframe src="${item.url}" class="w-full h-full border-0 shadow-2xl relative z-10" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`
-                            : `<img src="${item.url}" class="w-full h-full object-contain relative z-10 drop-shadow-[0_10px_30px_rgba(0,0,0,0.5)]">`
-                        }
-                        <!-- Gradient Overlay -->
-                        <div class="absolute bottom-0 left-0 w-full h-1/3 bg-gradient-to-t from-black/80 to-transparent pointer-events-none z-20"></div>
-                    </div>`;
+                    html += `<div class="slider-slide w-full h-full flex items-center justify-center ${idx === 0 ? 'active' : ''}" data-bg="${item.thumb}">${item.type === 'video' ? `<iframe src="${item.url}" class="w-full h-full border-0 shadow-2xl relative z-10" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>` : `<img src="${item.url}" class="w-full h-full object-contain relative z-10 drop-shadow-[0_10px_30px_rgba(0,0,0,0.5)]">`}<div class="absolute bottom-0 left-0 w-full h-1/3 bg-gradient-to-t from-black/80 to-transparent pointer-events-none z-20"></div></div>`;
                 });
-
-                html += `</div>`; // Close Slides Container
-                
-                // Navigation Glass Buttons
+                html += `</div>`;
                 if (mediaItems.length > 1) {
-                    html += `
-                        <button onclick="slideModernProject(-1)" class="glass-btn absolute left-6 top-1/2 -translate-y-1/2 text-white w-14 h-14 rounded-full flex items-center justify-center shadow-2xl opacity-0 group-hover:opacity-100 transition-all duration-300 z-30 text-2xl hover:scale-110"><i class="fa-solid fa-chevron-left"></i></button>
-                        <button onclick="slideModernProject(1)" class="glass-btn absolute right-6 top-1/2 -translate-y-1/2 text-white w-14 h-14 rounded-full flex items-center justify-center shadow-2xl opacity-0 group-hover:opacity-100 transition-all duration-300 z-30 text-2xl hover:scale-110"><i class="fa-solid fa-chevron-right"></i></button>`;
+                    html += `<button onclick="slideModernProject(-1)" class="glass-btn absolute left-6 top-1/2 -translate-y-1/2 text-white w-14 h-14 rounded-full flex items-center justify-center shadow-2xl opacity-0 group-hover:opacity-100 transition-all duration-300 z-30 text-2xl hover:scale-110"><i class="fa-solid fa-chevron-left"></i></button><button onclick="slideModernProject(1)" class="glass-btn absolute right-6 top-1/2 -translate-y-1/2 text-white w-14 h-14 rounded-full flex items-center justify-center shadow-2xl opacity-0 group-hover:opacity-100 transition-all duration-300 z-30 text-2xl hover:scale-110"><i class="fa-solid fa-chevron-right"></i></button>`;
                 }
-                html += `</div>`; // Close Main Viewport
-
-                // Thumbnails Row
+                html += `</div>`;
                 if (mediaItems.length > 1) {
-                    html += `
-                    <div class="flex overflow-x-auto hide-scrollbar gap-4 mt-6 pb-4" dir="ltr" style="scroll-snap-type: x mandatory;">`;
+                    html += `<div class="flex overflow-x-auto hide-scrollbar gap-4 mt-6 pb-4" dir="ltr" style="scroll-snap-type: x mandatory;">`;
                     mediaItems.forEach((item, idx) => {
                         let isVid = item.type === 'video';
-                        let thumbUrl = item.thumb || 'https://via.placeholder.com/150/020617/FFFFFF?text=Video';
-                        html += `
-                        <button onclick="goToModernSlide(${idx})" class="thumb-modern-btn shrink-0 w-36 h-24 rounded-2xl overflow-hidden relative border-[3px] transition-all duration-500 scroll-snap-align-start ${idx === 0 ? 'border-sky-500 shadow-[0_0_20px_rgba(14,165,233,0.4)] scale-105' : 'border-transparent opacity-50 hover:opacity-100 hover:scale-105 bg-gray-900'}">
-                            <img src="${thumbUrl}" class="w-full h-full object-cover">
-                            ${isVid ? `<div class="absolute inset-0 bg-black/40 flex items-center justify-center"><div class="w-10 h-10 bg-sky-500/80 backdrop-blur rounded-full flex items-center justify-center"><i class="fa-solid fa-play text-white text-sm ml-1"></i></div></div>` : ''}
-                        </button>`;
+                        let thumbUrl = item.thumb || '';
+                        html += `<button onclick="goToModernSlide(${idx})" class="thumb-modern-btn shrink-0 w-36 h-24 rounded-2xl overflow-hidden relative border-[3px] transition-all duration-500 scroll-snap-align-start ${idx === 0 ? 'border-sky-500 shadow-[0_0_20px_rgba(14,165,233,0.4)] scale-105' : 'border-transparent opacity-50 hover:opacity-100 hover:scale-105 bg-gray-900'}"><img src="${thumbUrl}" class="w-full h-full object-cover">${isVid ? `<div class="absolute inset-0 bg-black/40 flex items-center justify-center"><div class="w-10 h-10 bg-sky-500/80 backdrop-blur rounded-full flex items-center justify-center"><i class="fa-solid fa-play text-white text-sm ml-1"></i></div></div>` : ''}</button>`;
                     });
                     html += `</div>`;
                 }
                 html += `</div>`;
             }
 
-            if(p.websiteLink && dispType !== 'website') {
-    html += `<div class="mb-8 text-center md:text-start"><a href="${p.websiteLink}" target="_blank" class="bg-indigo-600 text-white px-10 py-4 rounded-[1.5rem] font-bold hover:bg-indigo-700 shadow-lg inline-flex items-center gap-2 text-lg transition hover:-translate-y-1">🌐 ${isKu ? 'سەردانی وێبسایت بکە' : 'Visit Website'}</a></div>`;
-}
-
-// FIND this:
-if(p.extraLinks && p.extraLinks.length > 0) {
-    html += `
-    <div class="mb-16">
-        <div class="flex flex-wrap gap-4 justify-center md:justify-start">
-            ${p.extraLinks.map(link => `
-                <a href="${link.url}" target="_blank" class="...">
-                    <i class="fa-solid fa-arrow-up-right-from-square ..."></i>
-                    ${link.label || link.url}
-                </a>
-            `).join('')}
-        </div>
-    </div>`;
-}
-
-// REPLACE with:
-if(p.extraLinks && p.extraLinks.length > 0) {
-    html += `
-    <div class="mb-16">
-        <div class="flex flex-wrap gap-4 justify-center md:justify-start">
-            ${p.extraLinks.map(link => link.label ? `
-                <a href="${link.url}" target="_blank" class="bg-white border border-gray-200 hover:border-indigo-400 hover:bg-indigo-50 text-gray-700 hover:text-indigo-700 px-7 py-3.5 rounded-2xl font-bold shadow-sm inline-flex items-center gap-2 text-base transition-all hover:-translate-y-0.5">
-                    <i class="fa-solid fa-arrow-up-right-from-square text-indigo-400 text-sm"></i>
-                    ${link.label}
-                </a>
-            ` : '').join('')}
-        </div>
-    </div>`;
-}
-
-            // Related Projects (Intelligent Fallback Logic)
-            const relatedTargetCount = 2;
-            let related = siteData.projects.map((proj, i) => ({...proj, origIndex: i})).filter(proj => proj.category === p.category && proj.origIndex !== index);
-            
-            // ئەگەر هاوپۆلەکە تەواو نەبوو، لە جۆرەکانی تر بهێنە
-            if (related.length < relatedTargetCount) {
-                const needed = relatedTargetCount - related.length;
-                const otherTypes = siteData.projects.map((proj, i) => ({...proj, origIndex: i})).filter(proj => proj.category !== p.category && proj.origIndex !== index);
-                related.push(...otherTypes.slice(0, needed));
+            if (p.websiteLink && dispType !== 'website') {
+                html += `<div class="mb-8 text-center md:text-start"><a href="${p.websiteLink}" target="_blank" class="bg-indigo-600 text-white px-10 py-4 rounded-[1.5rem] font-bold hover:bg-indigo-700 shadow-lg inline-flex items-center gap-2 text-lg transition hover:-translate-y-1">🌐 ${isKu ? 'سەردانی وێبسایت بکە' : 'Visit Website'}</a></div>`;
             }
 
+            if (p.extraLinks && p.extraLinks.length > 0) {
+                html += `<div class="mb-16"><div class="flex flex-wrap gap-4 justify-center md:justify-start">${p.extraLinks.map(link => `<a href="${link.url}" target="_blank" class="bg-white border border-gray-200 hover:border-indigo-400 hover:bg-indigo-50 text-gray-700 hover:text-indigo-700 px-7 py-3.5 rounded-2xl font-bold shadow-sm inline-flex items-center gap-2 text-base transition-all hover:-translate-y-0.5"><i class="fa-solid fa-arrow-up-right-from-square text-indigo-400 text-sm"></i> ${link.title[currentLang]}</a>`).join('')}</div></div>`;
+            }
+
+            const relatedTargetCount = 2;
+            let related = siteData.projects.map((proj, i) => ({ ...proj, origIndex: i })).filter(proj => proj.category === p.category && proj.origIndex !== index);
+            if (related.length < relatedTargetCount) {
+                const needed = relatedTargetCount - related.length;
+                const otherTypes = siteData.projects.map((proj, i) => ({ ...proj, origIndex: i })).filter(proj => proj.category !== p.category && proj.origIndex !== index);
+                related.push(...otherTypes.slice(0, needed));
+            }
             related = related.slice(0, relatedTargetCount);
 
             if (related.length > 0) {
-                html += `
-                <div class="mt-20 pt-16 border-t border-gray-200">
-                    <h3 class="text-3xl font-black mb-10 text-center text-gray-900">${isKu ? 'پڕۆژەی تری پەیوەندیدار' : 'More Works'}</h3>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                        ${related.map(r => `
-                            <div onclick="openProject(${r.origIndex})" class="group cursor-pointer bg-white rounded-[2rem] shadow-sm hover:shadow-2xl transition-all duration-300 border border-gray-100 overflow-hidden flex flex-col h-full">
-                                <div class="w-full h-64 overflow-hidden bg-gray-100 relative">
-                                    <img src="${getFullImageUrl(r.bannerImage || (r.images && r.images[0] ? r.images[0] : ''))}" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
-                                </div>
-                                <div class="p-8">
-                                    <p class="text-indigo-600 text-xs font-bold mb-2 uppercase tracking-widest">${r.category}</p>
-                                    <h4 class="text-2xl font-black text-gray-900">${r.title[currentLang]}</h4>
-                                </div>
-                            </div>
-                        `).join('')}
-                    </div>
-                </div>`;
+                html += `<div class="mt-20 pt-16 border-t border-gray-200"><h3 class="text-3xl font-black mb-10 text-center text-gray-900">${isKu ? 'پڕۆژەی تری پەیوەندیدار' : 'More Works'}</h3><div class="grid grid-cols-1 md:grid-cols-2 gap-8">${related.map(r => `<div onclick="openProject(${r.origIndex})" class="group cursor-pointer bg-white rounded-[2rem] shadow-sm hover:shadow-2xl transition-all duration-300 border border-gray-100 overflow-hidden flex flex-col h-full"><div class="w-full h-64 overflow-hidden bg-gray-100 relative"><img src="${getFullImageUrl(r.bannerImage || (r.images && r.images[0] ? r.images[0] : ''))}" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"></div><div class="p-8"><p class="text-indigo-600 text-xs font-bold mb-2 uppercase tracking-widest">${r.category}</p><h4 class="text-2xl font-black text-gray-900">${r.title[currentLang]}</h4></div></div>`).join('')}</div></div>`;
             }
 
-            // CTA Block
-            html += `
-                <div class="mt-16 bg-gradient-to-br from-indigo-900 via-gray-900 to-[#020617] rounded-[2.5rem] p-10 md:p-16 text-center text-white relative overflow-hidden shadow-2xl border border-white/10">
-                    <div class="absolute inset-0 opacity-20" style="background-image: radial-gradient(circle at 2px 2px, rgba(255,255,255,0.15) 1px, transparent 0); background-size: 32px 32px;"></div>
-                    <div class="absolute -top-24 -right-24 w-64 h-64 bg-indigo-500 rounded-full blur-[80px] opacity-30 pointer-events-none"></div>
-                    <div class="relative z-10">
-                        <h3 class="text-3xl md:text-5xl font-black mb-6 tracking-tight">${isKu ? 'بیرۆکەیەکی لەم شێوەیەت هەیە؟' : 'Have a similar project in mind?'}</h3>
-                        <p class="text-gray-300 mb-10 max-w-2xl mx-auto text-lg md:text-xl leading-relaxed">${isKu ? 'با پێکەوە کار بکەین بۆ بەدیهێنانی بیرۆکەکانت و گۆڕینیان بۆ واقیع بە باشترین کوالێتی.' : 'Let’s collaborate to bring your ideas to life and turn them into reality with premium quality.'}</p>
-                        <button onclick="closeProjectView(); setTimeout(() => document.getElementById('contact').scrollIntoView({behavior: 'smooth'}), 100);" class="bg-white text-indigo-900 hover:bg-sky-100 font-black py-4 px-10 rounded-2xl transition-all shadow-[0_0_20px_rgba(255,255,255,0.2)] inline-flex items-center gap-3 text-lg hover:-translate-y-1 hover:scale-105">
-                            <i class="fa-regular fa-paper-plane"></i> ${isKu ? 'با دەست پێ بکەین' : 'Let\'s Start'}
-                        </button>
-                    </div>
-                </div>
-            </div>`;
+            html += `<div class="mt-16 bg-gradient-to-br from-indigo-900 via-gray-900 to-[#020617] rounded-[2.5rem] p-10 md:p-16 text-center text-white relative overflow-hidden shadow-2xl border border-white/10"><div class="absolute inset-0 opacity-20" style="background-image: radial-gradient(circle at 2px 2px, rgba(255,255,255,0.15) 1px, transparent 0); background-size: 32px 32px;"></div><div class="relative z-10"><h3 class="text-3xl md:text-5xl font-black mb-6 tracking-tight">${isKu ? 'بیرۆکەیەکی لەم شێوەیەت هەیە؟' : 'Have a similar project in mind?'}</h3><p class="text-gray-300 mb-10 max-w-2xl mx-auto text-lg md:text-xl leading-relaxed">${isKu ? 'با پێکەوە کار بکەین بۆ بەدیهێنانی بیرۆکەکانت و گۆڕینیان بۆ واقیع بە باشترین کوالێتی.' : 'Let\'s collaborate to bring your ideas to life and turn them into reality with premium quality.'}</p><button onclick="closeProjectView(); setTimeout(() => document.getElementById('contact').scrollIntoView({behavior: 'smooth'}), 100);" class="bg-white text-indigo-900 hover:bg-sky-100 font-black py-4 px-10 rounded-2xl transition-all shadow-[0_0_20px_rgba(255,255,255,0.2)] inline-flex items-center gap-3 text-lg hover:-translate-y-1 hover:scale-105"><i class="fa-regular fa-paper-plane"></i> ${isKu ? 'با دەست پێ بکەین' : 'Let\'s Start'}</button></div></div></div>`;
 
             detailView.innerHTML = html;
-
             if (mediaItems.length > 1) {
                 modernSlideIndex = 0;
                 startModernSlider(mediaItems.length);
@@ -707,48 +623,46 @@ if(p.extraLinks && p.extraLinks.length > 0) {
             clearInterval(modernSliderInterval);
             document.getElementById('projectDetailView').classList.add('hidden');
             document.querySelectorAll('body > section:not(#projectDetailView)').forEach(s => s.classList.remove('hidden'));
-            document.getElementById('projects').scrollIntoView({behavior: 'instant'});
+            document.getElementById('projects').scrollIntoView({ behavior: 'instant' });
         }
 
         function slideModernProject(direction) {
             const slides = document.querySelectorAll('.slider-slide');
-            if(slides.length === 0) return;
+            if (slides.length === 0) return;
             modernSlideIndex += direction;
-            if(modernSlideIndex < 0) modernSlideIndex = slides.length - 1;
-            if(modernSlideIndex >= slides.length) modernSlideIndex = 0;
-            goToModernSlide(modernSlideIndex);
+            if (modernSlideIndex < 0) modernSlideIndex = slides.length - 1;
+            if (modernSlideIndex >= slides.length) modernSlideIndex = 0;
+            goToModernSlide(modernSlideIndex, false);
         }
 
-        function goToModernSlide(index) {
+        function goToModernSlide(index, shouldScroll = true) {
             const slides = document.querySelectorAll('.slider-slide');
             const thumbs = document.querySelectorAll('.thumb-modern-btn');
             const ambientBg = document.getElementById('ambientBg');
-            if(!slides.length) return;
-
+            if (!slides.length) return;
             modernSlideIndex = index;
-
             slides.forEach((slide, idx) => {
                 const iframe = slide.querySelector('iframe');
-                if(idx !== index) {
+                if (idx !== index) {
                     slide.classList.remove('active');
-                    if(iframe) { const src = iframe.src; iframe.src = src; } // Reset iframe to stop video
+                    if (iframe) { const src = iframe.src; iframe.src = src; }
                 } else {
                     slide.classList.add('active');
-                    if(ambientBg) { ambientBg.style.backgroundImage = `url('${slide.getAttribute('data-bg')}')`; }
+                    if (ambientBg) { ambientBg.style.backgroundImage = `url('${slide.getAttribute('data-bg')}')`; }
                 }
             });
-
             thumbs.forEach((btn, idx) => {
-                if(idx === index) {
+                if (idx === index) {
                     btn.classList.add('border-sky-500', 'shadow-[0_0_20px_rgba(14,165,233,0.4)]', 'scale-105');
                     btn.classList.remove('border-transparent', 'opacity-50');
-                    btn.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+                    if (shouldScroll) {
+                        btn.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+                    }
                 } else {
                     btn.classList.remove('border-sky-500', 'shadow-[0_0_20px_rgba(14,165,233,0.4)]', 'scale-105');
                     btn.classList.add('border-transparent', 'opacity-50');
                 }
             });
-
             startModernSlider(slides.length);
         }
 
@@ -760,4 +674,5 @@ if(p.extraLinks && p.extraLinks.length > 0) {
         loadData();
     </script>
 </body>
+
 </html>
