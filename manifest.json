@@ -2,7 +2,7 @@
   "name": "RV Dashboard",
   "short_name": "RV Dash",
   "description": "داشبۆردی بەڕێوەبردنی پۆرتفۆلیۆی ڕیڤان",
-  "start_url": "./db.html",
+  "start_url": "https://kurd-apps.github.io/rv/db.html",
   "display": "standalone",
   "background_color": "#0f172a",
   "theme_color": "#4f46e5",
