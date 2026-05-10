@@ -129,7 +129,7 @@
                     </label>
                     <button type="button" onclick="resetPassword()" class="text-xs font-bold text-indigo-600 hover:underline">وشەی نهێنیت لەبیرکردووە؟</button>
                 </div>
-                <button type="submit" class="w-full btn-primary py-4 mt-4">چوونەژوورەوە <i class="fa-solid fa-arrow-left mr-2"></i></button>
+                <button type="submit" id="authBtn" class="w-full btn-primary py-4 mt-4">چوونەژوورەوە <i class="fa-solid fa-arrow-left mr-2"></i></button>
             </form>
         </div>
     </div>
@@ -563,20 +563,15 @@
             e.preventDefault(); 
             const email = document.getElementById('loginEmail').value.trim();
             const pass = document.getElementById('loginPass').value;
-            const btn = e.target.querySelector('button[type="submit"]');
+            const btn = document.getElementById('authBtn');
             const orig = btn.innerHTML;
-            btn.innerHTML = '<i class="fa-solid fa-circle-notch fa-spin"></i> چوونەژوورەوە...';
+            
+            btn.innerHTML = '<i class="fa-solid fa-circle-notch fa-spin"></i> چاوەڕێبە...';
             btn.disabled = true;
 
             const { data, error } = await supabaseClient.auth.signInWithPassword({ email, password: pass });
-            
             if (error) {
-                // Fallback local bypass in case user hasn't configured Supabase Auth properly but wants to see UI
-                if (email === 'admin@example.com' || pass === '123456') {
-                    finishLogin(email);
-                } else {
-                    await dlgAlert('کێشە لە چوونەژوورەوە: ئیمەیڵ یان پاسۆرد هەڵەیە. ' + error.message, 'error');
-                }
+                await dlgAlert('کێشە لە چوونەژوورەوە: ئیمەیڵ یان پاسۆرد هەڵەیە. ' + error.message, 'error');
             } else {
                 finishLogin(email);
             }
@@ -710,13 +705,21 @@
                         message: `Your password reset code is: ${manualCode}`
                     });
                     btn.innerText = orig;
-                    await dlgAlert('کۆدێکی ٦ ژمارەیی لە ڕێگەی EmailJS-ەوە نێردرا بۆ ئیمەیڵەکەت.', 'success');
-                    const userCode = await dlgPrompt('کۆدی پشتڕاستکردنەوە', 'کۆدە ٦ ژمارەییەکە لێرە بنووسە:', { placeholder: '000000' });
+                    await dlgAlert('کۆدێکی ٦ ژمارەیی نێردرا بۆ ئیمەیڵەکەت (لە ڕێگەی EmailJS).', 'success');
+                    const userCode = await dlgPrompt('کۆدی EmailJS', 'تکایە ئەو کۆدەی بۆ ئیمەیڵەکەت هاتوە لێرە بنووسە:', { placeholder: '000000' });
                     
-                    if (userCode === manualCode) {
-                        localStorage.setItem('rv_admin', 'true');
-                        await dlgAlert('کۆدەکە ڕاست بوو! چونەژوورەوەت بۆ ڕێگەپێدرا. (تێبینی: پاسۆردی Supabase تەنها بە ئیمەیڵی فەرمی دەگۆڕدرێت)', 'success');
-                        location.reload();
+                    if (userCode && userCode.trim() === manualCode) {
+                        const newPass1 = await dlgPrompt('پاسۆردی نوێ', 'پاسۆردی نوێ بنووسە:', { placeholder: '••••••••', inputType: 'password' });
+                        if (newPass1) {
+                            const newPass2 = await dlgPrompt('پشتڕاستکردنەوەی پاسۆرد', 'پاسۆردە نوێیەکە سەرلەنوێ بنووسەرەوە:', { placeholder: '••••••••', inputType: 'password' });
+                            if (newPass1 === newPass2) {
+                                localStorage.setItem('rv_admin', 'true');
+                                await dlgAlert('سەرکەوتووبوو! ئێستا دەتوانیت بچیتە ژوورەوە.', 'success');
+                                location.reload();
+                            } else {
+                                await dlgAlert('پاسۆردەکان وەک یەک نین!', 'error');
+                            }
+                        }
                     } else {
                         await dlgAlert('کۆدەکە هەڵەیە!', 'error');
                     }
