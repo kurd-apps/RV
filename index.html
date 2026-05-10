@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RV Portfolio - Supabase</title>
+    <title>RV Portfolio</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
@@ -189,40 +189,47 @@
         </div>
     </section>
 
-    <!-- Experience -->
+    <!-- Experience & Skills -->
     <section id="experience" class="py-24 px-6 bg-gray-50">
-        <div class="max-w-4xl mx-auto flex flex-col gap-16">
-            <div class="bg-white p-8 md:p-12 rounded-[2.5rem] shadow-sm border border-gray-100">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10">
+            <!-- Experience -->
+            <div class="bg-white p-8 md:p-12 rounded-[2.5rem] shadow-sm border border-gray-100 flex flex-col">
                 <h3 class="text-2xl font-black mb-10 border-b pb-4 text-indigo-600 text-center" data-ku="ئەزموونەکان"
                     data-en="Experience">Experience</h3>
-                <div id="cvList" class="space-y-10 border-r-2 border-indigo-100 pr-6 mr-2"></div>
+                <div id="cvList" class="space-y-10 border-r-2 border-indigo-100 pr-6 mr-2 flex-grow"></div>
             </div>
-            <div class="bg-white p-8 md:p-12 rounded-[2.5rem] shadow-sm border border-gray-100">
+            <!-- Skills -->
+            <div class="bg-white p-8 md:p-12 rounded-[2.5rem] shadow-sm border border-gray-100 flex flex-col">
                 <h3 class="text-2xl font-black mb-10 border-b pb-4 text-indigo-600 text-center" data-ku="شارەزاییەکان"
                     data-en="Skills">Skills</h3>
-                <div id="skillsList" class="space-y-6 text-sm font-bold"></div>
+                <div id="skillsList" class="space-y-8 text-sm font-bold flex-grow"></div>
             </div>
         </div>
     </section>
 
     <!-- Projects -->
-    <section id="projects" class="py-24 px-6 max-w-7xl mx-auto">
-        <h3 class="text-3xl font-black mb-16 border-b pb-4 text-center text-gray-900" data-ku="هەڵبژاردەی کارەکانم"
-            data-en="Selected Works">Selected Works</h3>
-        <div id="statsGrid" class="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16"></div>
-        <div id="projectsGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 min-h-[400px]"></div>
+    <section id="projects"
+        class="py-24 bg-slate-900 mt-12 mx-4 md:mx-8 rounded-[3rem] shadow-2xl relative overflow-hidden">
+        <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10">
+        </div>
+        <div class="px-6 max-w-7xl mx-auto relative z-10">
+            <h3 class="text-3xl font-black mb-16 border-b border-slate-800 pb-4 text-center text-white"
+                data-ku="هەڵبژاردەی کارەکانم" data-en="Selected Works">Selected Works</h3>
+            <div id="statsGrid" class="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16"></div>
+            <div id="projectsGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 min-h-[400px]"></div>
 
-        <!-- Pagination -->
-        <div id="projectsPagination"
-            class="mt-16 flex flex-wrap justify-center items-center gap-3 bg-white px-8 py-4 rounded-full shadow-lg border border-gray-100 max-w-fit mx-auto overflow-hidden">
-            <!-- Content will be injected by JS -->
+            <!-- Pagination -->
+            <div id="projectsPagination"
+                class="mt-16 flex flex-wrap justify-center items-center gap-3 bg-white px-8 py-4 rounded-full shadow-lg border border-gray-100 max-w-fit mx-auto overflow-hidden">
+                <!-- Content will be injected by JS -->
+            </div>
         </div>
     </section>
 
     <!-- Partners -->
     <section class="py-16 px-6 max-w-7xl mx-auto text-center border-t border-gray-200">
-        <h3 class="text-sm font-bold uppercase tracking-widest text-gray-400 mb-12" data-ku="هاوبەشەکانم"
-            data-en="Partners">Partners</h3>
+        <h3 class="text-sm font-bold uppercase tracking-widest text-gray-400 mb-12"
+            data-ku="ئەو لایەنانەی کارم لەگەڵ کردوون" data-en="Partners">Partners</h3>
         <div id="clientsGrid"
             class="flex flex-wrap justify-center items-center gap-12 md:gap-20 opacity-70 hover:opacity-100 transition duration-500">
         </div>
@@ -360,7 +367,8 @@
             typeWriter('heroName', welcome);
             document.getElementById('heroTitle').innerText = heroData.title?.[currentLang] || '';
             document.getElementById('heroImage').src = heroData.image || '';
-            if (heroData.imagePos) document.getElementById('heroImage').style.objectPosition = `${heroData.imagePos.x}% ${heroData.imagePos.y}%`;
+            if (heroData.imagePosY !== undefined) document.getElementById('heroImage').style.objectPosition = `center ${heroData.imagePosY}%`;
+            else if (heroData.imagePos) document.getElementById('heroImage').style.objectPosition = `${heroData.imagePos.x}% ${heroData.imagePos.y}%`;
 
             // About
             const aboutData = sec.about || {};
@@ -417,14 +425,14 @@
                 return parseInt(end) || 0;
             };
 
-            const sortedCv = [...(sec.cv || [])].filter(item => item.role?.[currentLang]).sort((a, b) => parseCVDate(b.year) - parseCVDate(a.year));
+            const sortedCv = [...(sec.cv || [])].filter(item => item.role?.[currentLang]).sort((a, b) => parseCVDate(b.date || b.year) - parseCVDate(a.date || a.year));
             const cvListEl = document.getElementById('cvList');
             cvListEl.innerHTML = sortedCv.map(item => `
                 <div class="relative">
                     <div class="absolute top-1.5 w-4 h-4 bg-indigo-600 rounded-full border-4 border-white ${isKu ? '-right-8' : '-left-8'}"></div>
                     <h4 class="text-xl font-black text-gray-900">${item.role?.[currentLang] || ''}</h4>
-                    <p class="text-indigo-600 font-bold text-sm mb-2">${item.place?.[currentLang] || ''} • ${item.year}</p>
-                    <p class="text-gray-600">${item.desc?.[currentLang] || ''}</p>
+                    <p class="text-indigo-600 font-bold text-sm mb-2">${(item.company || item.place)?.[currentLang] || ''} • ${item.date || item.year || ''}</p>
+                    ${item.desc?.[currentLang] ? `<p class="text-gray-600">${item.desc[currentLang]}</p>` : ''}
                 </div>`).join('');
 
             if (sortedCv.length > 5) {
