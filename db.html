@@ -11,7 +11,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
-    <link rel="manifest" href="manifest.json">
+     <link rel="manifest" href="manifest.json">
     
     <style type="text/tailwindcss">
         @layer base {
@@ -258,9 +258,10 @@
                             <div class="flex-1 space-y-3">
                                 <label class="form-label">وێنەی پڕۆفایل</label>
                                 <div class="flex gap-2">
-                                    <input type="text" id="heroImageUrl" oninput="document.getElementById('profilePreview').src=this.value" class="form-input text-xs flex-1" dir="ltr" placeholder="URL">
+                                    <input type="text" id="heroImageUrl" oninput="document.getElementById('profilePreview').src=getFullImageUrl(this.value)" class="form-input text-xs flex-1" dir="ltr" placeholder="URL">
                                     <input type="file" id="heroUpload" onchange="uploadGenericImage(this, 'heroImageUrl', 'profilePreview')" class="hidden">
-                                    <button type="button" onclick="document.getElementById('heroUpload').click()" class="bg-indigo-50 text-indigo-600 px-4 rounded-xl text-xs font-bold whitespace-nowrap"><i class="fa-solid fa-upload"></i></button>
+                                    <button type="button" onclick="document.getElementById('heroUpload').click()" class="bg-indigo-50 text-indigo-600 px-3 rounded-xl text-xs font-bold whitespace-nowrap" title="ئەپلۆد"><i class="fa-solid fa-upload"></i></button>
+                                    <button type="button" onclick="openGallery(url => { document.getElementById('heroImageUrl').value=url; document.getElementById('profilePreview').src=getFullImageUrl(url); })" class="bg-slate-100 text-slate-600 px-3 rounded-xl text-xs font-bold whitespace-nowrap" title="گەلەری"><i class="fa-solid fa-images"></i></button>
                                 </div>
                                 <div>
                                     <label class="text-[10px] text-slate-500 font-bold mb-1 block">بەرزی و نزمی وێنەکە (بە %)</label>
@@ -390,6 +391,7 @@
                         <button onclick="addPartnerLink()" class="btn-secondary sm:w-auto"><i class="fa-solid fa-link"></i> دانانی لینک</button>
                         <input type="file" id="partnerUpload" onchange="uploadPartnerImage(this)" class="hidden">
                         <button onclick="document.getElementById('partnerUpload').click()" class="btn-primary sm:w-auto whitespace-nowrap"><i class="fa-solid fa-upload"></i> ئەپلۆد</button>
+                        <button onclick="openGallery(url => { if(!siteData.sections.partners) siteData.sections.partners = []; siteData.sections.partners.push(url); renderPartners(); })" class="btn-secondary sm:w-auto"><i class="fa-solid fa-images"></i> گەلەری</button>
                     </div>
                     <div id="partnersGridUI" class="flex flex-wrap gap-4 pt-4"></div>
                 </div>
@@ -498,9 +500,11 @@
                         <div>
                             <label class="form-label">شێوازی پیشاندان</label>
                             <select id="p-layout" class="form-input py-3 cursor-pointer">
-                                <option value="standard">١. بانەری سەرەکی</option>
-                                <option value="grid">٢. چوارگۆشەیی</option>
-                                <option value="slider">٣. سلایدەر</option>
+                                <option value="standard">١. بانەری سەرەکی (Banner)</option>
+                                <option value="grid">٢. چوارگۆشەیی (Grid)</option>
+                                <option value="slider">٣. سلایدەر (Slider)</option>
+                                <option value="iframe">٤. لاپەڕەی وێبسایت (Iframe)</option>
+                                <option value="video">٥. ڤیدیۆ (Video Player)</option>
                             </select>
                         </div>
                         <div>
@@ -523,9 +527,10 @@
                             <h3 class="font-black text-slate-800">وێنەکان</h3>
                             <div class="flex gap-2 w-full sm:w-auto">
                                 <input type="text" id="p-link-input" class="form-input !py-2 text-xs flex-1 sm:w-24" dir="ltr" placeholder="URL">
-                                <button type="button" onclick="addProjectLinkImg()" class="bg-slate-100 text-slate-600 hover:bg-slate-200 px-3 rounded-xl text-xs font-bold transition-colors"><i class="fa-solid fa-link"></i></button>
+                                <button type="button" onclick="addProjectLinkImg()" class="bg-slate-100 text-slate-600 hover:bg-slate-200 px-3 rounded-xl text-xs font-bold transition-colors" title="دانانی لینک"><i class="fa-solid fa-link"></i></button>
                                 <input type="file" id="p-upload" onchange="uploadProjectImage(this)" class="hidden">
-                                <button type="button" onclick="document.getElementById('p-upload').click()" class="bg-indigo-50 text-indigo-600 hover:bg-indigo-100 px-3 py-2 rounded-xl text-xs font-bold transition-colors shadow-sm"><i class="fa-solid fa-upload"></i></button>
+                                <button type="button" onclick="document.getElementById('p-upload').click()" class="bg-indigo-50 text-indigo-600 hover:bg-indigo-100 px-3 py-2 rounded-xl text-xs font-bold transition-colors shadow-sm" title="ئەپلۆد"><i class="fa-solid fa-upload"></i></button>
+                                <button type="button" onclick="openGallery(url => { if(!editingProjectImages.includes(url)) { editingProjectImages.push(url); if(!editingProjectBanner) editingProjectBanner = url; renderProjectGallery(); } })" class="bg-slate-100 text-slate-600 hover:bg-slate-200 px-3 rounded-xl text-xs font-bold transition-colors shadow-sm" title="گەلەری"><i class="fa-solid fa-images"></i></button>
                             </div>
                         </div>
                         <p class="text-[10px] text-slate-500 font-medium">ئەو وێنەیەی کە دەتەوێت ببێتە بانەر، کلیک لەسەر ئەستێرەکەی بکە.</p>
@@ -558,6 +563,48 @@
         let siteData = { sections: {}, projects: [] };
         let currentEditingId = null;
         let categories = [];
+        let ghData = null;
+
+        // Try to load GitHub credentials from the other dashboard session
+        try {
+            const stored = localStorage.getItem('encrypted_gh');
+            if(stored) {
+                const decodedString = decodeURIComponent(escape(atob(stored)));
+                ghData = JSON.parse(decodedString);
+                console.log("GitHub credentials loaded from localStorage");
+            }
+        } catch(e) { console.warn("Could not load GitHub credentials", e); }
+
+        function getFullImageUrl(url) {
+            if (!url) return 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7';
+            if (url.startsWith('http')) {
+                if (url.includes('github.com') && !url.includes('raw.githubusercontent.com')) {
+                    return url.replace('github.com', 'raw.githubusercontent.com').replace('/blob/', '/');
+                }
+                return url;
+            }
+            if (url.startsWith('data:')) return url;
+            
+            // Try to get GitHub info from credentials or social links
+            let user = ghData?.user;
+            let repo = ghData?.repo || 'RV';
+
+            if(!user) {
+                const ghLink = document.getElementById('s-gh')?.value || '';
+                if(ghLink.includes('github.com/')) {
+                    user = ghLink.split('github.com/')[1].split('/')[0];
+                }
+            }
+            
+            // Ultimate fallback
+            if(!user) user = 'kurd-apps'; 
+            
+            if (!url.includes('://')) {
+                const cleanPath = url.startsWith('/') ? url.slice(1) : url;
+                return `https://raw.githubusercontent.com/${user}/${repo}/main/${cleanPath}`;
+            }
+            return url;
+        }
 
         // Auth Logic
         document.getElementById('loginForm').addEventListener('submit', async (e) => { 
@@ -770,7 +817,9 @@
             siteData.sections = {};
             content?.forEach(r => siteData.sections[r.id] = r.content);
 
-            categories = [...new Set(siteData.projects.map(p => p.category))].filter(Boolean);
+            const defaultCats = ['Website', 'Application', 'Database', 'Logo Design', 'Business Card', 'Flex Design', 'Brochure Design', 'Social Media Design'];
+            const existingCats = [...new Set(siteData.projects.map(p => p.category))].filter(Boolean);
+            categories = [...new Set([...defaultCats, ...existingCats])];
             updateCatSelect();
 
             populateFields();
@@ -786,7 +835,7 @@
             const hero = s.hero || {};
             get('heroNameKu').value = hero.name?.ku || ''; get('heroNameEn').value = hero.name?.en || '';
             get('heroTitleKu').value = hero.title?.ku || ''; get('heroTitleEn').value = hero.title?.en || '';
-            get('heroImageUrl').value = hero.image || ''; get('profilePreview').src = hero.image || '';
+            get('heroImageUrl').value = hero.image || ''; get('profilePreview').src = getFullImageUrl(hero.image);
             get('heroImagePosY').value = hero.imagePosY || 50; 
             get('profilePreview').style.objectPosition = `center ${hero.imagePosY || 50}%`;
 
@@ -883,15 +932,29 @@
         function renderProjects() {
             const grid = document.getElementById('projectsGrid'); grid.innerHTML = '';
             siteData.projects.forEach(p => {
-                const img = p.banner_image || p.images?.[0] || 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7';
+                const img = getFullImageUrl(p.banner_image || p.images?.[0]);
+                const layoutIcons = {
+                    'iframe': '<i class="fa-solid fa-window-maximize"></i>',
+                    'video': '<i class="fa-solid fa-play-circle"></i>',
+                    'slider': '<i class="fa-solid fa-images"></i>',
+                    'grid': '<i class="fa-solid fa-grip"></i>',
+                    'standard': '<i class="fa-solid fa-image"></i>'
+                };
+                const layoutIcon = layoutIcons[p.display_type] || layoutIcons['standard'];
+
                 grid.innerHTML += `
                 <div class="card !p-4 flex flex-col group hover:shadow-lg transition-all duration-300">
                     <div class="relative w-full aspect-video rounded-2xl overflow-hidden mb-4 bg-slate-100">
                         <img src="${img}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
                         <div class="absolute inset-0 bg-slate-900/10 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                        <div class="absolute top-2 right-2 bg-white/90 backdrop-blur-sm text-slate-800 w-8 h-8 rounded-xl flex items-center justify-center text-xs shadow-sm">
+                            ${layoutIcon}
+                        </div>
                     </div>
                     <div class="mb-4 flex-1">
-                        <h4 class="font-black text-slate-800 line-clamp-1 mb-1">${p.title?.ku || p.title || 'بێ ناو'}</h4>
+                        <div class="flex items-center justify-between mb-1">
+                            <h4 class="font-black text-slate-800 line-clamp-1">${p.title?.ku || p.title || 'بێ ناو'}</h4>
+                        </div>
                         <span class="text-[10px] bg-slate-100 text-slate-500 px-2 py-1 rounded-md font-bold">${p.category || 'گشتی'}</span>
                     </div>
                     <div class="flex gap-2 mt-auto">
@@ -902,35 +965,45 @@
             });
         }
 
-        function openProjectEditor(id = null) {
+        let editingProjectImages = [];
+        let editingProjectBanner = '';
+
+        function openProjectEditor(id) {
             currentEditingId = id;
             const get = (i) => document.getElementById(i);
+            const modal = get('projectEditorModal');
+            modal.classList.remove('hidden');
             
             if(id) {
-                const p = siteData.projects.find(x => x.id == id);
+                const p = siteData.projects.find(p => p.id === id);
                 get('p-title-ku').value = p.title?.ku || p.title || '';
                 get('p-title-en').value = p.title?.en || '';
                 get('p-cat-select').value = categories.includes(p.category) ? p.category : '';
                 checkNewCat(get('p-cat-select').value);
                 get('p-date').value = p.date || '';
-                get('p-layout').value = p.layout || 'standard';
+                get('p-layout').value = p.display_type || 'standard';
                 get('p-price').value = p.price || '';
                 get('p-web').value = p.website_link || '';
                 get('p-video').value = p.video_link || '';
                 get('p-short-ku').value = p.short_desc?.ku || '';
                 get('p-short-en').value = p.short_desc?.en || '';
-                get('p-desc-ku').innerHTML = p.desc?.ku || '';
-                get('p-desc-en').innerHTML = p.desc?.en || '';
-                renderProjectGallery(p.images || [], p.banner_image);
+                get('p-desc-ku').innerHTML = p.full_desc?.ku || '';
+                get('p-desc-en').innerHTML = p.full_desc?.en || '';
+                
+                editingProjectImages = [...(p.images || [])];
+                editingProjectBanner = p.banner_image || '';
+                renderProjectGallery();
             } else {
                 document.querySelectorAll('#projectEditorModal input, #projectEditorModal textarea').forEach(i => i.value = '');
                 get('p-layout').value = 'standard';
                 get('p-desc-ku').innerHTML = ''; get('p-desc-en').innerHTML = '';
                 get('p-cat-select').value = ''; checkNewCat('');
-                renderProjectGallery([], '');
+                
+                editingProjectImages = [];
+                editingProjectBanner = '';
+                renderProjectGallery();
             }
             document.body.style.overflow = 'hidden';
-            get('projectEditorModal').classList.remove('hidden');
         }
 
         function closeProjectEditor() { 
@@ -938,53 +1011,65 @@
             document.getElementById('projectEditorModal').classList.add('hidden'); 
         }
 
-        function renderProjectGallery(images, banner) {
+        function renderProjectGallery() {
             const list = document.getElementById('p-gallery-list'); list.innerHTML = '';
-            images.forEach(img => {
-                const isBanner = img === banner;
+            editingProjectImages.forEach(img => {
+                const isBanner = img === editingProjectBanner;
+                const fullUrl = getFullImageUrl(img);
                 list.innerHTML += `
                 <div class="relative aspect-square rounded-xl overflow-hidden border-2 group ${isBanner ? 'border-amber-400 ring-2 ring-amber-400/30' : 'border-slate-200'}">
-                    <img src="${img}" class="w-full h-full object-cover">
+                    <img src="${fullUrl}" class="w-full h-full object-cover">
                     <div class="absolute inset-0 bg-slate-900/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-2">
                         <button onclick="setBanner('${img}')" class="w-8 h-8 bg-amber-400 text-white rounded-full text-xs shadow-lg hover:scale-110 transition-transform" title="بیکە بە بانەر"><i class="fa-solid fa-star"></i></button>
                         <button onclick="removeProjImg('${img}')" class="w-8 h-8 bg-red-500 text-white rounded-full text-xs shadow-lg hover:scale-110 transition-transform" title="سڕینەوە"><i class="fa-solid fa-trash"></i></button>
                     </div>
-                    ${isBanner ? '<div class="absolute bottom-1 right-1 left-1 bg-amber-400/90 text-white text-[9px] font-black py-0.5 rounded text-center backdrop-blur-sm">بانەر</div>' : ''}
+                    ${isBanner ? '<div class="absolute bottom-0 inset-x-0 bg-amber-400 text-slate-900 text-[10px] py-1 text-center font-black">بانەر</div>' : ''}
                 </div>`;
             });
         }
 
-        function setBanner(url) {
-            const p = siteData.projects.find(x => x.id == currentEditingId) || { images: [] };
-            renderProjectGallery(p.images || [], url);
-            p.banner_image = url; // Temporarily store state, saved properly in saveProject
-        }
-
-        function removeProjImg(url) {
-            const imgs = Array.from(document.querySelectorAll('#p-gallery-list img')).map(i => i.src).filter(u => u !== url);
-            const banner = document.querySelector('.border-amber-400 img')?.src;
-            renderProjectGallery(imgs, banner === url ? imgs[0] : banner);
-        }
+        function setBanner(url) { editingProjectBanner = url; renderProjectGallery(); }
+        function removeProjImg(url) { editingProjectImages = editingProjectImages.filter(i => i !== url); if(editingProjectBanner === url) editingProjectBanner = editingProjectImages[0] || ''; renderProjectGallery(); }
 
         async function saveProject() {
-            const get = (i) => document.getElementById(i);
-            const cat = get('p-cat-select').value === 'NEW_CAT' ? get('p-cat-new').value : get('p-cat-select').value;
-            const imgs = Array.from(document.querySelectorAll('#p-gallery-list img')).map(i => i.src);
-            const banner = document.querySelector('.border-amber-400 img')?.src || imgs[0] || '';
+            const btn = document.querySelector('button[onclick="saveProject()"]');
+            const orig = btn.innerHTML;
+            btn.innerHTML = '<i class="fa-solid fa-circle-notch fa-spin"></i> پاشەکەوت دەکرێت...';
+            btn.disabled = true;
 
-            const proj = {
-                title: { ku: get('p-title-ku').value, en: get('p-title-en').value },
-                category: cat, date: get('p-date').value, layout: get('p-layout').value,
-                price: get('p-price').value, website_link: get('p-web').value, video_link: get('p-video').value,
-                short_desc: { ku: get('p-short-ku').value, en: get('p-short-en').value },
-                desc: { ku: get('p-desc-ku').innerHTML, en: get('p-desc-en').innerHTML },
-                images: imgs, banner_image: banner
-            };
-            
-            if(currentEditingId) await supabaseClient.from('projects').update(proj).eq('id', currentEditingId);
-            else await supabaseClient.from('projects').insert([proj]);
-            
-            closeProjectEditor(); loadData(); showMsg('پڕۆژەکە بە سەرکەوتوویی پاشەکەوت کرا');
+            try {
+                const get = (i) => document.getElementById(i);
+                const cat = get('p-cat-select').value === 'NEW_CAT' ? get('p-cat-new').value : get('p-cat-select').value;
+                const imgs = Array.from(document.querySelectorAll('#p-gallery-list img')).map(i => i.src);
+                const banner = document.querySelector('.border-amber-400 img')?.src || imgs[0] || '';
+
+                if(!get('p-title-ku').value.trim()) throw new Error('تکایە ناوی پڕۆژە بنووسە');
+
+                const proj = {
+                    title: { ku: get('p-title-ku').value, en: get('p-title-en').value },
+                    category: cat, date: get('p-date').value, display_type: get('p-layout').value,
+                    price: get('p-price').value, website_link: get('p-web').value, video_link: get('p-video').value,
+                    short_desc: { ku: get('p-short-ku').value, en: get('p-short-en').value },
+                    full_desc: { ku: get('p-desc-ku').innerHTML, en: get('p-desc-en').innerHTML },
+                    images: editingProjectImages, banner_image: editingProjectBanner
+                };
+                
+                if(currentEditingId) {
+                    const { error } = await supabaseClient.from('projects').update(proj).eq('id', currentEditingId);
+                    if(error) throw error;
+                } else {
+                    const { error } = await supabaseClient.from('projects').insert([proj]);
+                    if(error) throw error;
+                }
+                
+                closeProjectEditor(); loadData(); showMsg('پڕۆژەکە بە سەرکەوتوویی پاشەکەوت کرا');
+            } catch (err) {
+                console.error(err);
+                await dlgAlert('هەڵە لە پاشەکەوتکردن: ' + (err.message || err.details || 'کێشەیەکی نەزانراو'), 'error');
+            } finally {
+                btn.innerHTML = orig;
+                btn.disabled = false;
+            }
         }
 
         async function deleteProject(id) { 
@@ -996,41 +1081,152 @@
 
         async function uploadGenericImage(input, targetUrlId, targetImgId) {
             const f = input.files[0]; if(!f) return;
-            const name = `img_${Date.now()}_${f.name.replace(/\s+/g,'_')}`;
-            await supabaseClient.storage.from('images').upload(name, f);
-            const { data: { publicUrl } } = supabaseClient.storage.from('images').getPublicUrl(name);
-            if(targetUrlId) {
-                document.getElementById(targetUrlId).value = publicUrl;
-                // Dispatch input event to trigger any listeners
-                document.getElementById(targetUrlId).dispatchEvent(new Event('input'));
+            const btn = input.nextElementSibling;
+            const orig = btn.innerHTML;
+            btn.innerHTML = '<i class="fa-solid fa-circle-notch fa-spin"></i>';
+            btn.disabled = true;
+
+            try {
+                const name = `img_${Date.now()}_${f.name.replace(/\s+/g,'_')}`;
+                const { data, error } = await supabaseClient.storage.from('images').upload(name, f);
+                if(error) throw error;
+
+                const { data: { publicUrl } } = supabaseClient.storage.from('images').getPublicUrl(name);
+                if(targetUrlId) {
+                    document.getElementById(targetUrlId).value = publicUrl;
+                    document.getElementById(targetUrlId).dispatchEvent(new Event('input'));
+                }
+                if(targetImgId) document.getElementById(targetImgId).src = publicUrl;
+            } catch (err) {
+                console.error(err);
+                alert('کێشەیەک لە ئەپلۆدکردن ڕوویدا: ' + err.message);
+            } finally {
+                btn.innerHTML = orig;
+                btn.disabled = false;
+                input.value = '';
             }
-            if(targetImgId) document.getElementById(targetImgId).src = publicUrl;
-            input.value = '';
         }
 
         function addProjectLinkImg() {
             const url = document.getElementById('p-link-input').value.trim();
             if(url) {
-                const imgs = Array.from(document.querySelectorAll('#p-gallery-list img')).map(i => i.src);
-                imgs.push(url);
-                const banner = document.querySelector('.border-amber-400 img')?.src || url;
-                renderProjectGallery(imgs, banner);
+                if(!editingProjectImages.includes(url)) {
+                    editingProjectImages.push(url);
+                    if(!editingProjectBanner) editingProjectBanner = url;
+                    renderProjectGallery();
+                }
                 document.getElementById('p-link-input').value = '';
             }
         }
 
         async function uploadProjectImage(input) {
             const f = input.files[0]; if(!f) return;
-            const name = `p_${Date.now()}_${f.name.replace(/\s+/g,'_')}`;
-            
-            await supabaseClient.storage.from('images').upload(name, f);
-            const { data: { publicUrl } } = supabaseClient.storage.from('images').getPublicUrl(name);
-            
-            const imgs = Array.from(document.querySelectorAll('#p-gallery-list img')).map(i => i.src);
-            imgs.push(publicUrl);
-            const banner = document.querySelector('.border-amber-400 img')?.src || publicUrl;
-            renderProjectGallery(imgs, banner);
-            input.value = ''; 
+            const btn = input.nextElementSibling;
+            const orig = btn.innerHTML;
+            btn.innerHTML = '<i class="fa-solid fa-circle-notch fa-spin"></i>';
+            btn.disabled = true;
+
+            try {
+                const name = `p_${Date.now()}_${f.name.replace(/\s+/g,'_')}`;
+                const { data, error } = await supabaseClient.storage.from('images').upload(name, f);
+                if(error) throw error;
+
+                const { data: { publicUrl } } = supabaseClient.storage.from('images').getPublicUrl(name);
+                
+                editingProjectImages.push(publicUrl);
+                if(!editingProjectBanner) editingProjectBanner = publicUrl;
+                renderProjectGallery();
+            } catch (err) {
+                console.error(err);
+                alert('کێشەیەک لە ئەپلۆدکردن ڕوویدا: ' + err.message);
+            } finally {
+                btn.innerHTML = orig;
+                btn.disabled = false;
+                input.value = ''; 
+            }
+        }
+
+        // Gallery Modal Logic
+        let galleryCallback = null;
+        async function openGallery(onSelect) {
+            galleryCallback = onSelect;
+            const modal = document.getElementById('galleryModal');
+            const grid = document.getElementById('galleryGrid');
+            grid.innerHTML = '<div class="col-span-full py-20 text-center"><i class="fa-solid fa-circle-notch fa-spin text-4xl text-indigo-500 mb-4"></i><p class="font-bold text-slate-500">وێنەکان باردەکرێن...</p></div>';
+            modal.classList.remove('hidden');
+
+            try {
+                let images = [];
+                
+                // 1. Try to fetch from GitHub if credentials exist
+                if(ghData) {
+                    try {
+                        const res = await fetch(`https://api.github.com/repos/${ghData.user}/${ghData.repo}/contents/images`, { 
+                            headers: { 'Authorization': `token ${ghData.token}` } 
+                        });
+                        if(res.ok) {
+                            const data = await res.json();
+                            const ghImages = data.filter(f => f.name.match(/\.(jpg|jpeg|png|gif|webp)$/i)).map(f => ({
+                                name: f.name,
+                                url: getFullImageUrl(f.path)
+                            }));
+                            images = [...images, ...ghImages];
+                        }
+                    } catch(e) { console.error("GitHub fetch failed", e); }
+                }
+
+                // 2. Try to fetch from Supabase
+                try {
+                    const { data, error } = await supabaseClient.storage.from('images').list('', { limit: 100, sortBy: { column: 'name', order: 'desc' } });
+                    if(!error && data) {
+                        const sbImages = data.map(file => {
+                            const { data: { publicUrl } } = supabaseClient.storage.from('images').getPublicUrl(file.name);
+                            return { name: file.name, url: publicUrl };
+                        });
+                        images = [...images, ...sbImages];
+                    }
+                } catch(e) { console.error("Supabase fetch failed", e); }
+
+                grid.innerHTML = '';
+                if(images.length === 0) {
+                    grid.innerHTML = '<div class="col-span-full py-20 text-center"><p class="font-bold text-slate-400">هیچ وێنەیەک نەدۆزرایەوە.</p></div>';
+                    return;
+                }
+
+                // Remove duplicates by URL
+                const uniqueImages = [];
+                const seenUrls = new Set();
+                images.forEach(img => {
+                    if(!seenUrls.has(img.url)) {
+                        seenUrls.add(img.url);
+                        uniqueImages.push(img);
+                    }
+                });
+
+                uniqueImages.forEach(img => {
+                    const item = document.createElement('div');
+                    item.className = 'group relative aspect-square bg-white rounded-2xl overflow-hidden border border-slate-100 hover:border-indigo-500 hover:ring-4 hover:ring-indigo-500/10 transition-all cursor-pointer shadow-sm';
+                    item.innerHTML = `
+                        <img src="${img.url}" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-slate-900/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                            <span class="bg-white text-indigo-600 px-3 py-1.5 rounded-xl font-bold text-xs shadow-lg">هەڵبژاردن</span>
+                        </div>
+                    `;
+                    item.onclick = () => {
+                        if(galleryCallback) galleryCallback(img.url);
+                        closeGallery();
+                    };
+                    grid.appendChild(item);
+                });
+            } catch (err) {
+                console.error(err);
+                grid.innerHTML = `<div class="col-span-full py-20 text-center text-red-500 font-bold">هەڵە لە بارکردنی گەلەری: ${err.message}</div>`;
+            }
+        }
+
+        function closeGallery() {
+            document.getElementById('galleryModal').classList.add('hidden');
+            galleryCallback = null;
         }
 
         // Rich Text Editing
@@ -1125,14 +1321,15 @@
                     
                     <div class="flex gap-4 items-center border-b border-slate-200 pb-5 mb-5">
                         <div class="w-16 h-16 rounded-2xl bg-white border border-slate-200 shadow-sm overflow-hidden flex-shrink-0">
-                            <img id="b-img-${i}" src="${b.logo || 'data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 24 24\' fill=\'%23cbd5e1\'><path d=\'M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z\'/></svg>'}" class="w-full h-full object-cover">
+                            <img id="b-img-${i}" src="${getFullImageUrl(b.logo)}" class="w-full h-full object-cover">
                         </div>
                         <div class="flex-1">
                             <label class="form-label">لۆگۆی بزنس</label>
                             <div class="flex gap-2">
-                                <input type="text" id="b-logo-in-${i}" class="b-logo form-input !py-2 !text-xs flex-1" value="${b.logo || ''}" placeholder="URL" dir="ltr" oninput="document.getElementById('b-img-${i}').src=this.value">
+                                <input type="text" id="b-logo-in-${i}" class="b-logo form-input !py-2 !text-xs flex-1" value="${b.logo || ''}" placeholder="URL" dir="ltr" oninput="document.getElementById('b-img-${i}').src=getFullImageUrl(this.value)">
                                 <input type="file" id="b-upload-${i}" onchange="uploadGenericImage(this, 'b-logo-in-${i}', 'b-img-${i}')" class="hidden">
-                                <button type="button" onclick="document.getElementById('b-upload-${i}').click()" class="bg-indigo-50 text-indigo-600 px-3 rounded-xl text-xs font-bold whitespace-nowrap"><i class="fa-solid fa-upload"></i></button>
+                                <button type="button" onclick="document.getElementById('b-upload-${i}').click()" class="bg-indigo-50 text-indigo-600 px-3 rounded-xl text-xs font-bold whitespace-nowrap" title="ئەپلۆد"><i class="fa-solid fa-upload"></i></button>
+                                <button type="button" onclick="openGallery(url => { document.getElementById('b-logo-in-${i}').value=url; document.getElementById('b-img-${i}').src=getFullImageUrl(url); })" class="bg-slate-100 text-slate-600 px-3 rounded-xl text-xs font-bold whitespace-nowrap" title="گەلەری"><i class="fa-solid fa-images"></i></button>
                             </div>
                         </div>
                     </div>
@@ -1169,7 +1366,7 @@
             siteData.sections.partners?.forEach((img, i) => {
                 grid.innerHTML += `
                 <div class="relative w-20 h-20 bg-slate-50 border border-slate-200 rounded-2xl p-3 flex items-center justify-center group">
-                    <img src="${img}" class="max-w-full max-h-full object-contain">
+                    <img src="${getFullImageUrl(img)}" class="max-w-full max-h-full object-contain">
                     <button type="button" onclick="deletePartner(${i})" class="absolute -top-2 -right-2 w-6 h-6 bg-white border border-slate-200 text-red-500 rounded-full text-[10px] shadow-sm opacity-0 group-hover:opacity-100 transition-opacity"><i class="fa-solid fa-times"></i></button>
                 </div>`;
             });
